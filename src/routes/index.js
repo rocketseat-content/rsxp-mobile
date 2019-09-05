@@ -1,7 +1,7 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import Login from '../src/pages/Login';
-import ForgotPassword from '../src/pages/ForgotPassword';
+import Login from '../pages/Login';
+import ForgotPassword from '../pages/ForgotPassword';
 
 const Main = createSwitchNavigator({
   Login,
