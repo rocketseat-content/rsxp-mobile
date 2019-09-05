@@ -5,8 +5,7 @@ import mask from '../../../assets/mask.png';
 import logo from '../../../assets/logo.png';
 import rocket from '../../../assets/rocket.png';
 
-export const Container = styled.View`
-  flex: 1;
+export const Container = styled(Animated.View)`
   padding-bottom: 30;
 `;
 

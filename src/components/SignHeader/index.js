@@ -41,7 +41,7 @@ export default function SignHeader() {
   useEffect(() => {
     if (keyboardShow) {
       Animated.timing(mainPercent, {
-        toValue: 0.8,
+        toValue: 0.7,
         duration: 300
       }).start();
 
@@ -73,11 +73,15 @@ export default function SignHeader() {
   }, [keyboardShow]);
 
   return (
-    <Container>
+    <Container
+      style={{
+        flex: mainPercent
+      }}
+    >
       <Mask
         style={{
           marginTop: Animated.multiply(auxPercent, -70),
-          top: -80 + getStatusBarHeight()
+          top: -90 + getStatusBarHeight()
         }}
       />
       <Logo
@@ -95,8 +99,8 @@ export default function SignHeader() {
             Animated.multiply(rocketPercent, 50),
             getStatusBarHeight() + 15
           ),
-          width: Animated.multiply(mainPercent, 190),
-          height: Animated.multiply(mainPercent, 275)
+          width: Animated.multiply(mainPercent, 180),
+          height: Animated.multiply(mainPercent, 260)
         }}
       />
     </Container>
