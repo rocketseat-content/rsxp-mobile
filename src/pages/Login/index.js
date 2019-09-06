@@ -4,11 +4,11 @@ import {
   KeyboardAvoidingView,
   Keyboard,
   View,
-  Alert,
   Platform
 } from 'react-native';
+import { useDispatch } from 'react-redux';
 
-import { signin } from '../../services/auth';
+import { signInRequest } from '../../store/modules/auth/actions';
 
 import { SignHeader } from '../../components';
 
@@ -29,16 +29,14 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  const dispatch = useDispatch();
+
   async function handleSubmit() {
     if (!email || !password) return;
 
     Keyboard.dismiss();
 
-    try {
-      const response = await signin(email, password);
-    } catch (err) {
-      Alert.alert('Houve um erro ao tentar realizar o login');
-    }
+    dispatch(signInRequest(email, password));
   }
 
   return (

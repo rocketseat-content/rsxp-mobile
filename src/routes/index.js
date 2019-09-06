@@ -85,4 +85,9 @@ const SignedRoutes = createBottomTabNavigator(
   }
 );
 
-export default createAppContainer(SignedRoutes, Main);
+const TopLevelNavigator = createSwitchNavigator({
+  Main,
+  SignedRoutes
+});
+
+export default createAppContainer(TopLevelNavigator);
