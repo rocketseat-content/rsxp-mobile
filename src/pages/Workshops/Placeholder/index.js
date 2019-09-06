@@ -7,6 +7,7 @@ import {
   SessionPlaceholder,
   SessionDatePlaceholder,
   WorkshopsContainer,
+  WorkshopCards,
   WorkshopCard,
   WorkshopTitlePlaceholder,
   WorkshopDescriptionPlaceholder,
@@ -55,7 +56,7 @@ export default function WorkshopsPlaceholder() {
         </Session>
       </SessionsContainer>
 
-      {renderCards()}
+      <WorkshopCards>{renderCards()}</WorkshopCards>
     </Container>
   );
 }

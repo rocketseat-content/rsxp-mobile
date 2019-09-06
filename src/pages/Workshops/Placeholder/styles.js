@@ -11,6 +11,12 @@ export const SessionsContainer = styled.View`
   flex-direction: row;
 `;
 
+export const WorkshopCards = styled.View`
+  width: ${width * 0.9};
+  margin-left: ${width * 0.1};
+  margin-top: 20;
+`;
+
 export const Session = styled.View`
   align-items: center;
   flex: 1;
@@ -38,7 +44,7 @@ export const WorkshopsContainer = styled.TouchableOpacity`
 `;
 
 export const WorkshopCard = styled(LinearGradient).attrs({
-  colors: ['#aaa', '#ccc'],
+  colors: ['#ccc', '#aaa'],
   start: { x: 0, y: 0.75 },
   end: { x: 1, y: 0.25 },
   locations: [0, 1]

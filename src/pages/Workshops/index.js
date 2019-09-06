@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SignedHeader } from '../../components';
+import { WorkshopsHeader } from '../../components';
 
 import Placeholder from './Placeholder';
 
@@ -11,7 +11,7 @@ export default function Workshops() {
 
   return (
     <Container>
-      <SignedHeader />
+      <WorkshopsHeader />
 
       {loading ? (
         <Content>

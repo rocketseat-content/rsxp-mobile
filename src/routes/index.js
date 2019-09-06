@@ -13,7 +13,7 @@ import Login from '../pages/Login';
 import ForgotPassword from '../pages/ForgotPassword';
 
 import Workshops from '../pages/Workshops';
-import Profile from '../pages/Workshops';
+import Profile from '../pages/Profile';
 
 const Main = createSwitchNavigator({
   Login,
