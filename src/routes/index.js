@@ -27,8 +27,8 @@ const TabBarComponent = props => (
     end={{ x: 1, y: 0.25 }}
     locations={[0, 1]}
     style={{
-      height: 59 + getBottomSpace(),
-      paddingTop: getBottomSpace() * 0.4
+      height: 59 + getBottomSpace() / 1.5,
+      paddingTop: getBottomSpace() * 0.3
     }}
   >
     <BottomTabBar

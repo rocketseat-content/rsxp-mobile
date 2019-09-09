@@ -5269,10 +5269,10 @@ react-native-svg-transformer@^0.13.0:
     "@svgr/core" "^4.1.0"
     semver "^5.6.0"
 
-react-native-svg@^9.8.4:
-  version "9.8.4"
-  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-9.8.4.tgz#6fd28198ae991b30cfbea10bb445b55870f0457c"
-  integrity sha512-s0kCURCQyupf9qL3ZPccZ43Hxkvmccf+tZ1/Tq2bAiORLNhVCI0gtI57zqqHsKk5PnTKmnqT8aTWfp5TzYgZWw==
+react-native-svg@^9.5.1:
+  version "9.8.5"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-9.8.5.tgz#ccddf364154fa496747cc22b22eed92ff07cd7d7"
+  integrity sha512-NHdTmkxfKySWqqZgNraZjI+75OvaQvYCcVWv+EIn6stoR14GbuZ1VOLXAzR1n/GuOzzdvw5oyuhpu4x6jYh7CA==
 
 react-native-tab-view@^1.2.0, react-native-tab-view@^1.4.1:
   version "1.4.1"

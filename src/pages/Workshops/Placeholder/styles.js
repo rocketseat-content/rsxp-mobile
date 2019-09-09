@@ -5,16 +5,20 @@ import { Dimensions } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
-export const Container = styled.View``;
+export const Container = styled.View`
+  margin-bottom: 35;
+`;
 
 export const SessionsContainer = styled.View`
   flex-direction: row;
+  padding-bottom: 10;
+  border-bottom-width: 4;
+  border-color: #ddd;
 `;
 
-export const WorkshopCards = styled.View`
+export const WorkshopCards = styled.ScrollView`
   width: ${width * 0.9};
   margin-left: ${width * 0.1};
-  margin-top: 20;
 `;
 
 export const Session = styled.View`
@@ -22,7 +26,7 @@ export const Session = styled.View`
   flex: 1;
 `;
 
-export const SessionPlaceholder = styled(ShimmerPlaceHolder)`
+export const SessionTitlePlaceholder = styled(ShimmerPlaceHolder)`
   width: 62;
   height: 16;
   margin-bottom: 5;
@@ -31,6 +35,7 @@ export const SessionPlaceholder = styled(ShimmerPlaceHolder)`
 export const SessionDatePlaceholder = styled(ShimmerPlaceHolder)`
   width: 42;
   height: 12;
+  margin-bottom: 5;
 `;
 
 export const WorkshopsContainer = styled.TouchableOpacity`
@@ -52,6 +57,8 @@ export const WorkshopCard = styled(LinearGradient).attrs({
   width: 100%;
   height: 106;
   justify-content: center;
+  padding-top: 30;
+  padding-bottom: 30;
 `;
 
 export const WorkshopTitlePlaceholder = styled(ShimmerPlaceHolder)`

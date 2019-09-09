@@ -4,7 +4,7 @@ import {
   Container,
   SessionsContainer,
   Session,
-  SessionPlaceholder,
+  SessionTitlePlaceholder,
   SessionDatePlaceholder,
   WorkshopsContainer,
   WorkshopCards,
@@ -24,12 +24,12 @@ export default function WorkshopsPlaceholder() {
     for (i = 0; i < cardsNumber; i++) {
       cards.push(
         <WorkshopsContainer key={`workshop-card-placeholder-${i}`}>
-          <WorkshopCard autoRun>
+          <WorkshopCard>
             <WorkshopTitlePlaceholder autoRun />
             <WorkshopDescriptionPlaceholder autoRun />
             <WorkshopInstructorContainer>
-              <WorkshopInstructorPicturePlaceholder />
-              <WorkshopInstructorNamePlaceholder />
+              <WorkshopInstructorPicturePlaceholder autoRun />
+              <WorkshopInstructorNamePlaceholder autoRun />
             </WorkshopInstructorContainer>
           </WorkshopCard>
         </WorkshopsContainer>
@@ -43,15 +43,15 @@ export default function WorkshopsPlaceholder() {
     <Container>
       <SessionsContainer>
         <Session>
-          <SessionPlaceholder autoRun />
+          <SessionTitlePlaceholder autoRun />
           <SessionDatePlaceholder autoRun />
         </Session>
         <Session>
-          <SessionPlaceholder autoRun />
+          <SessionTitlePlaceholder autoRun />
           <SessionDatePlaceholder autoRun />
         </Session>
         <Session>
-          <SessionPlaceholder autoRun />
+          <SessionTitlePlaceholder autoRun />
           <SessionDatePlaceholder autoRun />
         </Session>
       </SessionsContainer>
