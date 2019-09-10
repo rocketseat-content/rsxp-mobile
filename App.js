@@ -3,22 +3,16 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { StatusBar } from 'react-native';
 
-import NavigationService from './src/services/navigation';
-
 import { store, persistor } from './src/store';
 
-import Routes from './src/routes';
+import App from './src';
 
-export default function App() {
+export default function Index() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <StatusBar barStyle="light-content" />
-        <Routes
-          ref={navigatorRef =>
-            NavigationService.setTopLevelNavigator(navigatorRef)
-          }
-        />
+        <App />
       </PersistGate>
     </Provider>
   );

@@ -17,7 +17,7 @@ export const SessionsContainer = styled.View`
   border-color: #7159c1;
 `;
 
-export const WorkshopCards = styled.ScrollView`
+export const WorkshopCards = styled.FlatList`
   width: ${width * 0.9};
   margin-left: ${width * 0.1};
 `;

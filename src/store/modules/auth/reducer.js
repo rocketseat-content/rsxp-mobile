@@ -14,6 +14,8 @@ export default function auth(state = INITIAL_STATE, action) {
         token: action.payload.token,
         signed: true
       };
+    case types.SIGN_OUT_REQUEST:
+      return INITIAL_STATE;
     default:
       return state;
   }

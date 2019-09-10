@@ -29,7 +29,11 @@ export function* signInRequest({ payload }) {
   }
 }
 
-export function setToken(payload) {
+export function signOutRequest() {
+  NavigationService.navigate('Login');
+}
+
+export function setToken({ payload }) {
   if (!payload) return;
 
   const { token } = payload.auth;
@@ -40,6 +44,7 @@ export function setToken(payload) {
 }
 
 export default all([
-  takeLatest(types.SIGN_IN_REQUEST, signInRequest)
-  // takeLatest(types.PERSIST_REHYDRATE, setToken)
+  takeLatest(types.SIGN_IN_REQUEST, signInRequest),
+  takeLatest(types.SIGN_OUT_REQUEST, signOutRequest),
+  takeLatest(types.PERSIST_REHYDRATE, setToken)
 ]);

@@ -36,9 +36,9 @@ export default function Workshops() {
     loadWorkshops();
   }, []);
 
-  function renderWorkshops() {
-    return workshops.map(workshop => (
-      <WorkshopsContainer key={`workshop-card-${workshop.id}`}>
+  function renderWorkshops({ item: workshop }) {
+    return (
+      <WorkshopsContainer>
         <WorkshopCard colors={workshop.colors || ['#7159c1', '#c759e0']}>
           <WorkshopTitle numberOfLines={2}>{workshop.title}</WorkshopTitle>
           <WorkshopInstructorContainer>
@@ -53,7 +53,7 @@ export default function Workshops() {
           </WorkshopInstructorContainer>
         </WorkshopCard>
       </WorkshopsContainer>
-    ));
+    );
   }
 
   return (
@@ -78,9 +78,13 @@ export default function Workshops() {
                 <SessionDate>16:30h</SessionDate>
               </Session>
             </SessionsContainer>
-            <WorkshopCards onScrollEndDrag={loadWorkshops}>
-              {renderWorkshops()}
-            </WorkshopCards>
+            <WorkshopCards
+              data={workshops}
+              renderItem={renderWorkshops}
+              keyExtractor={workshop => `workshop-card-${workshop.id}`}
+              onRefresh={loadWorkshops}
+              refreshing={false}
+            />
           </>
         )}
       </Content>

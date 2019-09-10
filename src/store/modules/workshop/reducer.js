@@ -1,4 +1,5 @@
 import types from './types';
+import authTypes from '../auth/types';
 
 const INITIAL_STATE = {
   loadingWorkshops: true,
@@ -14,6 +15,8 @@ export default function workshop(state = INITIAL_STATE, action) {
         loadingWorkshops: false,
         workshops: action.payload.workshops
       };
+    case authTypes.SIGN_OUT_REQUEST:
+      return INITIAL_STATE;
     default:
       return state;
   }

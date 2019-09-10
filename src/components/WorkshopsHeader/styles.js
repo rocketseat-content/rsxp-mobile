@@ -46,7 +46,7 @@ export const InfoIconButton = styled(TouchableOpacity)`
 `;
 
 export const InfoIcon = styled(Icon).attrs({
-  name: 'info-outline'
+  name: 'exit-to-app'
 })`
   font-size: 24;
   color: #fff;

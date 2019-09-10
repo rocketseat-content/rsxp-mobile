@@ -13,3 +13,10 @@ export function signInSuccess(token) {
     payload: { token }
   };
 }
+
+export function signOutRequest() {
+  return {
+    type: types.SIGN_OUT_REQUEST,
+    payload: {}
+  };
+}
