@@ -44,7 +44,7 @@ export default function Login({ navigation }) {
       <KeyboardAvoidingView
         behavior="padding"
         style={{ flex: 1 }}
-        enabled={Platform.OS === 'ios' ? true : false}
+        enabled={Platform.OS === 'ios'}
       >
         <SignHeader />
 

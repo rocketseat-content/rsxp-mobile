@@ -2,6 +2,7 @@ import React from 'react';
 import {
   createAppContainer,
   createSwitchNavigator,
+  createStackNavigator,
   createBottomTabNavigator
 } from 'react-navigation';
 import { BottomTabBar } from 'react-navigation-tabs';
@@ -13,6 +14,7 @@ import Login from '../pages/Login';
 import ForgotPassword from '../pages/ForgotPassword';
 
 import Workshops from '../pages/Workshops';
+import WorkshopDetails from '../pages/WorkshopDetails';
 import Profile from '../pages/Profile';
 
 const Main = createSwitchNavigator({
@@ -46,7 +48,7 @@ const TabBarComponent = props => (
   </LinearGradient>
 );
 
-const SignedRoutes = createBottomTabNavigator(
+const BottomRoutes = createBottomTabNavigator(
   {
     Workshops: {
       screen: Workshops,
@@ -85,15 +87,25 @@ const SignedRoutes = createBottomTabNavigator(
   }
 );
 
+const WorkshopRoutes = createStackNavigator(
+  {
+    BottomRoutes,
+    WorkshopDetails
+  },
+  {
+    headerMode: 'none'
+  }
+);
+
 export default signed =>
   createAppContainer(
     createSwitchNavigator(
       {
         Main,
-        SignedRoutes
+        WorkshopRoutes
       },
       {
-        initialRouteName: signed ? 'SignedRoutes' : 'Main'
+        initialRouteName: signed ? 'WorkshopRoutes' : 'Main'
       }
     )
   );

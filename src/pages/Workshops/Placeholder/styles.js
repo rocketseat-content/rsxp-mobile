@@ -6,7 +6,7 @@ import { Dimensions } from 'react-native';
 const { width } = Dimensions.get('window');
 
 export const Container = styled.View`
-  margin-bottom: 35;
+  margin-bottom: 39;
 `;
 
 export const SessionsContainer = styled.View`

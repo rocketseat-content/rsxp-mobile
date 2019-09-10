@@ -23,7 +23,7 @@ import {
   WorkshopInstructorName
 } from './styles';
 
-export default function Workshops() {
+export default function Workshops({ navigation }) {
   const { loadingWorkshops, workshops } = useSelector(state => state.workshop);
 
   const dispatch = useDispatch();
@@ -38,7 +38,9 @@ export default function Workshops() {
 
   function renderWorkshops({ item: workshop }) {
     return (
-      <WorkshopsContainer>
+      <WorkshopsContainer
+        onPress={() => navigation.navigate('WorkshopDetails', { workshop })}
+      >
         <WorkshopCard colors={workshop.colors || ['#7159c1', '#c759e0']}>
           <WorkshopTitle numberOfLines={2}>{workshop.title}</WorkshopTitle>
           <WorkshopInstructorContainer>

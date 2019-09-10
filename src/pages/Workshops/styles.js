@@ -68,7 +68,7 @@ export const WorkshopCard = styled(LinearGradient).attrs({
 
 export const WorkshopTitle = styled.Text`
   margin-bottom: 5;
-  margin-left: 15;
+  margin-horizontal: 15;
   color: #fff;
   font-size: 16;
   font-weight: bold;
