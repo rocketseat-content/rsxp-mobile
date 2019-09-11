@@ -7,8 +7,9 @@ const { width, height } = Dimensions.get('window');
 
 export const Container = styled.View``;
 
-export const Content = styled.View`
+export const Content = styled.ScrollView`
   margin-horizontal: 30;
+  height: ${height - 250};
 `;
 
 export const WorkshopTitle = styled.Text`
@@ -74,9 +75,7 @@ export const Separator = styled.View`
   margin-vertical: 15;
 `;
 
-export const WorkshopDescriptionContainer = styled.ScrollView`
-  height: ${height - 400};
-`;
+export const WorkshopDescriptionContainer = styled.View``;
 
 export const WorkshopDescription = styled.Text`
   font-size: 18;

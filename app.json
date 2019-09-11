@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "rsxp",
+    "name": "RSXP",
     "slug": "rsxp",
     "privacy": "public",
     "sdkVersion": "34.0.0",
@@ -11,14 +11,15 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#7159c1"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.rocketseat.rsxp"
     },
     "packagerOpts": {
       "config": "metro.config.js",

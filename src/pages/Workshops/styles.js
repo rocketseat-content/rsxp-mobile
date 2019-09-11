@@ -84,7 +84,7 @@ export const WorkshopInstructorContainer = styled.View`
 export const WorkshopInstructorPicture = styled.Image`
   width: 24;
   height: 24;
-  border-radius: 20;
+  border-radius: 12;
   margin-right: 5;
 `;
 

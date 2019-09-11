@@ -41,7 +41,7 @@ export default function WorkshopDetails({ navigation }) {
             <Instructor>
               <InstructorInfo>
                 <InstructorName>{user.name}</InstructorName>
-                <InstructorTitle>cto asdas</InstructorTitle>
+                <InstructorTitle>{user.title}</InstructorTitle>
               </InstructorInfo>
               <IconsContainer>
                 <GithubIcon />

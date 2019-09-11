@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { lighten } from 'polished';
 
 import { getWorkshopsRequest } from '../../store/modules/workshop/actions';
 
@@ -41,7 +42,14 @@ export default function Workshops({ navigation }) {
       <WorkshopsContainer
         onPress={() => navigation.navigate('WorkshopDetails', { workshop })}
       >
-        <WorkshopCard colors={workshop.colors || ['#7159c1', '#c759e0']}>
+        <WorkshopCard
+          colors={
+            (workshop.color && [
+              workshop.color,
+              lighten(0.1, workshop.color)
+            ]) || ['#7159c1', '#c759e0']
+          }
+        >
           <WorkshopTitle numberOfLines={2}>{workshop.title}</WorkshopTitle>
           <WorkshopInstructorContainer>
             <WorkshopInstructorPicture
