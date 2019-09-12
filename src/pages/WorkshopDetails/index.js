@@ -29,7 +29,7 @@ export default function WorkshopDetails({ navigation }) {
   return (
     <>
       <Container>
-        <WorkshopDetailsHeader title={workshop.title} />
+        <WorkshopDetailsHeader title={workshop.title} color={workshop.color} />
         <Content>
           <WorkshopTitle>{workshop.title}</WorkshopTitle>
           <InstructorContainer>

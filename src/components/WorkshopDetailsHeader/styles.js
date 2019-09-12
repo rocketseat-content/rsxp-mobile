@@ -4,11 +4,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const { height, width } = Dimensions.get('window');
 
-import smallMask from '../../../assets/small-mask.svg';
+import workshopDetailsMask from '../../../assets/workshop-details-mask';
 
 export const Container = styled.View``;
 
-export const SmallMask = styled(smallMask)`
+export const SmallMask = styled(workshopDetailsMask)`
   width: 100%;
   margin-bottom: 20;
 `;

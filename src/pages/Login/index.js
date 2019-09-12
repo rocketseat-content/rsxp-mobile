@@ -40,11 +40,14 @@ export default function Login({ navigation }) {
   }
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <TouchableWithoutFeedback
+      onPress={Keyboard.dismiss}
+      enabled={Platform.OS === 'ios'}
+    >
       <KeyboardAvoidingView
         behavior="padding"
         style={{ flex: 1 }}
-        enabled={Platform.OS === 'ios'}
+        keyboardVerticalOffset={-100}
       >
         <SignHeader />
 
@@ -58,6 +61,7 @@ export default function Login({ navigation }) {
                 autoCorrect={false}
                 keyboardType="email-address"
                 onChangeText={text => setEmail(text)}
+                value={email}
               />
               <EnvelopeIcon />
             </InputContainer>
@@ -70,6 +74,7 @@ export default function Login({ navigation }) {
                 autoCorrect={false}
                 secureTextEntry
                 onChangeText={text => setPassword(text)}
+                value={password}
               />
               <LockIcon />
             </InputContainer>

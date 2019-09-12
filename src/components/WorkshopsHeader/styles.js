@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const { height } = Dimensions.get('window');
 
-import smallMask from '../../../assets/small-mask.svg';
+import smallMask from '../../../assets/small-mask';
 import smallLogo from '../../../assets/small-logo.svg';
 
 export const Container = styled.View``;

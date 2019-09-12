@@ -9,10 +9,10 @@ import {
   WorkshopTitle
 } from './styles';
 
-export default function WorkshopDetailsHeader({ title }) {
+export default function WorkshopDetailsHeader({ title, color }) {
   return (
     <Container>
-      <SmallMask />
+      <SmallMask color={color} />
       <BackButton onPress={() => NavigationService.navigate('Workshops')}>
         <BackButtonIcon />
       </BackButton>
