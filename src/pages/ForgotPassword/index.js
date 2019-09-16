@@ -8,8 +8,6 @@ import {
   Platform
 } from 'react-native';
 
-import { resetPassword } from '../../services/auth';
-
 import { SignHeader } from '../../components';
 
 import {
@@ -27,16 +25,22 @@ import {
 export default function ForgotPassword({ navigation }) {
   const [email, setEmail] = useState();
 
-  async function handleSubmit() {
-    if (!email) return;
+  function validateMail() {
+    return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gim.test(
+      email
+    );
+  }
 
+  async function handleSubmit() {
     Keyboard.dismiss();
 
-    try {
-      const response = await resetPassword(email);
-    } catch (err) {
-      Alert.alert('Houve um erro ao tentar recuperar sua senha.');
+    if (!validateMail()) {
+      return Alert.alert('Email inválido. Por favor, verifique seus dados!');
     }
+
+    Alert.alert(
+      'Nós lhe enviamos um email com os detalhes da sua recuperação se senha!'
+    );
   }
 
   return (
@@ -44,7 +48,7 @@ export default function ForgotPassword({ navigation }) {
       <KeyboardAvoidingView
         behavior="padding"
         style={{ flex: 1 }}
-        enabled={Platform.OS === 'ios' ? true : false}
+        enabled={Platform.OS === 'ios'}
       >
         <SignHeader />
 
