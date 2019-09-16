@@ -76,16 +76,8 @@ export default function Workshops({ navigation }) {
           <>
             <SessionsContainer>
               <Session>
-                <SessionTitle>SESSÃO 1</SessionTitle>
-                <SessionDate>13:30h</SessionDate>
-              </Session>
-              <Session>
-                <SessionTitle isSelected>SESSÃO 2</SessionTitle>
-                <SessionDate isSelected>15:00h</SessionDate>
-              </Session>
-              <Session>
-                <SessionTitle>SESSÃO 3</SessionTitle>
-                <SessionDate>16:30h</SessionDate>
+                <SessionTitle isSelected>SESSÃO 1</SessionTitle>
+                <SessionDate isSelected>13:30h</SessionDate>
               </Session>
             </SessionsContainer>
             <WorkshopCards

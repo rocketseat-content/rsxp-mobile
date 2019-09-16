@@ -56,18 +56,6 @@ const BottomRoutes = createBottomTabNavigator(
           />
         )
       })
-    },
-    Profile: {
-      screen: Profile,
-      navigationOptions: () => ({
-        tabBarIcon: ({ focused }) => (
-          <Icon
-            name="person"
-            size={24}
-            color={focused ? '#fff' : 'rgba(255, 2555, 255, 0.5)'}
-          />
-        )
-      })
     }
   },
   {
