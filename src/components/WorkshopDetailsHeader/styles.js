@@ -9,7 +9,8 @@ import workshopDetailsMask from '../../../assets/workshop-details-mask';
 export const Container = styled.View``;
 
 export const SmallMask = styled(workshopDetailsMask)`
-  width: 100%;
+  width: ${width};
+  height: ${width / 2.67};
   margin-bottom: 20;
 `;
 

@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { Dimensions, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const { height } = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
 
 import smallMask from '../../../assets/small-mask';
 import smallLogo from '../../../assets/small-logo.svg';
@@ -10,7 +10,8 @@ import smallLogo from '../../../assets/small-logo.svg';
 export const Container = styled.View``;
 
 export const SmallMask = styled(smallMask)`
-  width: 100%;
+  width: ${width};
+  height: ${width / 2.85};
   margin-bottom: 20;
 `;
 

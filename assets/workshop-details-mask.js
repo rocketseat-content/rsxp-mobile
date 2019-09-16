@@ -11,7 +11,7 @@ import Svg, {
 import { lighten } from 'polished';
 
 const SvgComponent = ({ color, ...rest }) => (
-  <Svg width={375} height={140} {...rest}>
+  <Svg viewBox="0 0 375 140" preserveAspectRatio="xMidYMid meet" {...rest}>
     <Defs>
       <LinearGradient
         x1="100%"

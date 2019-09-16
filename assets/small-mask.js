@@ -3,7 +3,7 @@ import Svg, { Defs, LinearGradient, Stop, Path, Use } from 'react-native-svg';
 /* SVGR has dropped some elements not supported by react-native-svg: title */
 
 const SvgComponent = props => (
-  <Svg width={375} height={129} {...props}>
+  <Svg viewBox="0 0 375 129" preserveAspectRatio="xMidYMid meet" {...props}>
     <Defs>
       <LinearGradient
         x1="17.383%"
