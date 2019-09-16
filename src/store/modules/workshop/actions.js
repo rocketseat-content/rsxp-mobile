@@ -13,3 +13,10 @@ export function getWorkshopsSuccess(workshops) {
     payload: { workshops }
   };
 }
+
+export function subscribeToWorkshop(id) {
+  return {
+    type: types.SUBSCRIBE_TO_WORKSHOP,
+    payload: { id }
+  };
+}

@@ -1,7 +1,7 @@
 import { Alert } from 'react-native';
 import { takeLatest, all, call, put } from 'redux-saga/effects';
 
-import { getWorkshops } from '../../../services/workshop';
+import { getWorkshops, subscribe } from '../../../services/workshop';
 import { getWorkshopsSuccess } from './actions';
 
 import types from './types';
@@ -20,6 +20,18 @@ export function* getWorkshopsRequest() {
   }
 }
 
+export function* subscribeToWorkshop({ payload }) {
+  const { id: workshopId } = payload;
+  try {
+    yield call(subscribe, workshopId);
+
+    Alert.alert('Parabéns, sua inscrição para esse workshop está confirmada!');
+  } catch (err) {
+    Alert.alert(err.response.data.error);
+  }
+}
+
 export default all([
-  takeLatest(types.GET_WORKSHOPS_REQUEST, getWorkshopsRequest)
+  takeLatest(types.GET_WORKSHOPS_REQUEST, getWorkshopsRequest),
+  takeLatest(types.SUBSCRIBE_TO_WORKSHOP, subscribeToWorkshop)
 ]);

@@ -1,4 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import { subscribeToWorkshop } from '../../store/modules/workshop/actions';
 
 import { WorkshopDetailsHeader } from '../../components';
 
@@ -25,6 +28,8 @@ import {
 export default function WorkshopDetails({ navigation }) {
   const workshop = navigation.getParam('workshop');
   const { user } = workshop;
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -57,7 +62,7 @@ export default function WorkshopDetails({ navigation }) {
         </Content>
       </Container>
 
-      <SubmitButton>
+      <SubmitButton onPress={() => dispatch(subscribeToWorkshop(workshop.id))}>
         <SubmitButtonText>GARANTIR MINHA VAGA</SubmitButtonText>
       </SubmitButton>
     </>

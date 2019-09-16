@@ -15,6 +15,7 @@ import {
 
 export default function WorkshopsHeader() {
   const dispatch = useDispatch();
+
   return (
     <Container>
       <SmallMask />

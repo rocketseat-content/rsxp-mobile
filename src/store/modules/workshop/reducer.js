@@ -15,6 +15,8 @@ export default function workshop(state = INITIAL_STATE, action) {
         loadingWorkshops: false,
         workshops: action.payload.workshops
       };
+    case types.SUBSCRIBE_TO_WORKSHOP:
+      return { ...state, id: action.payload.id };
     case authTypes.SIGN_OUT_REQUEST:
       return INITIAL_STATE;
     default:
