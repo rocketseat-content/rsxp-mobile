@@ -100,7 +100,7 @@ export default signed =>
         WorkshopRoutes
       },
       {
-        initialRouteName: signed ? 'WorkshopRoutes' : 'Main'
+        initialRouteName: !signed ? 'Main' : 'WorkshopRoutes'
       }
     )
   );
