@@ -23,7 +23,10 @@
     },
     "packagerOpts": {
       "config": "metro.config.js",
-      "sourceExts": ["js", "jsx", "svg"]
+      "sourceExts": ["js", "jsx", "svg", "json"]
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content"
     }
   }
 }

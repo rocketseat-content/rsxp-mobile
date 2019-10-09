@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { lighten } from 'polished';
 
@@ -46,7 +47,7 @@ export default function Workshops({ navigation }) {
           colors={
             (workshop.color && [
               workshop.color,
-              lighten(0.1, workshop.color)
+              lighten(0.2, workshop.color)
             ]) || ['#7159c1', '#c759e0']
           }
         >
@@ -76,17 +77,17 @@ export default function Workshops({ navigation }) {
           <>
             <SessionsContainer>
               <Session>
-                <SessionTitle>SESSÃO 1</SessionTitle>
-                <SessionDate>13:30h</SessionDate>
+                <SessionTitle isSelected>SESSÃO 1</SessionTitle>
+                <SessionDate isSelected>13:30h</SessionDate>
               </Session>
-              <Session>
+              {/* <Session>
                 <SessionTitle isSelected>SESSÃO 2</SessionTitle>
                 <SessionDate isSelected>15:00h</SessionDate>
               </Session>
               <Session>
                 <SessionTitle>SESSÃO 3</SessionTitle>
                 <SessionDate>16:30h</SessionDate>
-              </Session>
+              </Session> */}
             </SessionsContainer>
             <WorkshopCards
               data={workshops}
@@ -94,6 +95,7 @@ export default function Workshops({ navigation }) {
               keyExtractor={workshop => `workshop-card-${workshop.id}`}
               onRefresh={loadWorkshops}
               refreshing={false}
+              ListFooterComponent={<View style={{ height: 20 }}></View>}
             />
           </>
         )}

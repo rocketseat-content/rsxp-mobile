@@ -21,7 +21,7 @@ const SvgComponent = ({ color, ...rest }) => (
         id="prefix__c"
       >
         <Stop
-          stopColor={(color && lighten(0.1, color)) || '#c759e0'}
+          stopColor={(color && lighten(0.2, color)) || '#c759e0'}
           offset="0%"
         />
         <Stop stopColor={color || '#7159c1'} offset="100%" />

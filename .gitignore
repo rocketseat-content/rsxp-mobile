@@ -9,4 +9,4 @@ npm-debug.*
 *.orig.*
 web-build/
 web-report/
-.env.json
+env.json
