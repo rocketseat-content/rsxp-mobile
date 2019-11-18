@@ -14,6 +14,12 @@ export function signInSuccess(token) {
   };
 }
 
+export function signInFailure() {
+  return {
+    type: types.SIGN_IN_FAILURE,
+  };
+}
+
 export function signOutRequest() {
   return {
     type: types.SIGN_OUT_REQUEST,

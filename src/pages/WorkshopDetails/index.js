@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useMemo, useEffect, useCallback} from 'react';
+import { TouchableOpacity, Linking, ActivityIndicator } from 'react-native';
+import api from '../../services/api';
 
 import { WorkshopDetailsHeader } from '../../components';
 
@@ -23,43 +25,78 @@ import {
 } from './styles';
 
 export default function WorkshopDetails({ navigation }) {
-  const workshop = navigation.getParam('workshop');
-  const { user } = workshop;
+  const workshopParam = useMemo(() => navigation.getParam('workshop'), [navigation]);
+  
+  const [loading, setLoading] = useState(true);
+  const [workshop, setWorkshop] = useState({});
+
+  const handleOpenLink = useCallback((link) => {
+    Linking.openURL(link);
+  }, []);
+
+  const handleSubscription = useCallback(() => {
+    // Subscribed?
+  }, []);
+
+  useEffect(() => {
+    setLoading(true);
+
+    api.get(`/workshops/${workshopParam.id}`).then((response) => {
+      setWorkshop(response.data);
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <>
       <Container>
-        <WorkshopDetailsHeader title={workshop.title} color={workshop.color} />
+        <WorkshopDetailsHeader title={workshopParam.title} color={workshopParam.color} />
         <Content>
-          <WorkshopTitle>{workshop.title}</WorkshopTitle>
-          <InstructorContainer>
-            <InstructorAvatar
-              source={{
-                uri: user.avatar_url
-              }}
-            />
-            <Instructor>
-              <InstructorInfo>
-                <InstructorName>{user.name}</InstructorName>
-                <InstructorTitle>{user.title}</InstructorTitle>
-              </InstructorInfo>
-              <IconsContainer>
-                <GithubIcon />
-                <LinkedinIcon />
-              </IconsContainer>
-            </Instructor>
-          </InstructorContainer>
+          { loading 
+            ? <ActivityIndicator color="#FFF" />
+            : (
+              <>
+                <WorkshopTitle>{workshop.title}</WorkshopTitle>
+                <InstructorContainer>
+                  <InstructorAvatar
+                    source={{
+                      uri: workshop.user.avatar_url
+                    }}
+                  />
+                  <Instructor>
+                    <InstructorInfo>
+                      <InstructorName>{workshop.user.name}</InstructorName>
+                      { workshop.user.title && <InstructorTitle>{workshop.user.title}</InstructorTitle> }
+                    </InstructorInfo>
+                    <IconsContainer>
+                      { workshop.user.github && (
+                        <TouchableOpacity onPress={() => handleOpenLink(workshop.user.github)}>
+                          <GithubIcon />
+                        </TouchableOpacity> 
+                      )}
+                      { workshop.user.linkedin && (
+                        <TouchableOpacity onPress={() => handleOpenLink(workshop.user.linkedin)}>
+                          <LinkedinIcon />
+                        </TouchableOpacity> 
+                      )}
+                    </IconsContainer>
+                  </Instructor>
+                </InstructorContainer>
 
-          <Separator />
-          <WorkshopDescriptionContainer alwaysBounceVertical>
-            <WorkshopDescription>{workshop.description}</WorkshopDescription>
-          </WorkshopDescriptionContainer>
+                <Separator />
+                <WorkshopDescriptionContainer alwaysBounceVertical>
+                  <WorkshopDescription>{workshop.description}</WorkshopDescription>
+                </WorkshopDescriptionContainer>
+              </>
+            ) }
         </Content>
-      </Container>
 
-      <SubmitButton>
-        <SubmitButtonText>GARANTIR MINHA VAGA</SubmitButtonText>
-      </SubmitButton>
+        { !loading && (
+          <SubmitButton onPress={handleSubscription}>
+            <SubmitButtonText>GARANTIR MINHA VAGA</SubmitButtonText>
+          </SubmitButton>
+        ) }
+      </Container>
     </>
   );
 }

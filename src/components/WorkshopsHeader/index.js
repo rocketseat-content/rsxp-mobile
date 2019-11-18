@@ -5,7 +5,6 @@ import { signOutRequest } from '../../store/modules/auth/actions';
 
 import {
   Container,
-  SmallMask,
   SmallLogo,
   WorkshopsTitleSeparator,
   WorkshopsTitle,
@@ -15,9 +14,9 @@ import {
 
 export default function WorkshopsHeader() {
   const dispatch = useDispatch();
+
   return (
     <Container>
-      <SmallMask />
       <SmallLogo />
       <WorkshopsTitleSeparator />
       <WorkshopsTitle>WORKSHOPS</WorkshopsTitle>

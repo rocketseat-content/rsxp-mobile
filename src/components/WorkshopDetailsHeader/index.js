@@ -3,7 +3,6 @@ import NavigationService from '../../services/navigation';
 
 import {
   Container,
-  SmallMask,
   BackButton,
   BackButtonIcon,
   WorkshopTitle
@@ -11,8 +10,7 @@ import {
 
 export default function WorkshopDetailsHeader({ title, color }) {
   return (
-    <Container>
-      <SmallMask color={color} />
+    <Container color={color}>
       <BackButton onPress={() => NavigationService.navigate('Workshops')}>
         <BackButtonIcon />
       </BackButton>

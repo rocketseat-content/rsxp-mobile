@@ -1,54 +1,47 @@
 import styled from 'styled-components/native';
-import { Dimensions, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { LinearGradient } from 'expo-linear-gradient';
+import Constants from 'expo-constants';
 
-const { height, width } = Dimensions.get('window');
-
-import smallMask from '../../../assets/small-mask';
 import smallLogo from '../../../assets/small-logo.svg';
 
-export const Container = styled.View``;
-
-export const SmallMask = styled(smallMask)`
-  width: ${width};
-  height: ${width / 2.85};
-  margin-bottom: 20;
+export const Container = styled(LinearGradient).attrs({
+  colors: ['#7A59C4', '#00DBFF'],
+  start: { x: 0.3, y: 1 },
+  end: { x: 1, y: 0 },
+})`
+  padding: ${Constants.statusBarHeight + 10}px 30px 20px;
+  margin-bottom: 20px;
+  flex-direction: row;
+  align-items: center;
 `;
 
 export const SmallLogo = styled(smallLogo)`
-  position: absolute;
-  top: ${height * 0.08};
-  left: 10%;
+  
 `;
 
 export const WorkshopsTitleSeparator = styled.View`
-  position: absolute;
-  top: ${height * 0.09};
-  left: 26%;
-  width: 1;
-  height: 24;
+  width: 1px;
+  height: 24px;
   opacity: 0.2;
   background-color: #fff;
+  margin: 0 15px;
 `;
 
 export const WorkshopsTitle = styled.Text`
-  position: absolute;
-  top: ${height * 0.09};
-  left: 30%;
-  font-size: 18;
+  font-size: 18px;
   font-weight: bold;
   color: #fff;
 `;
 
 export const InfoIconButton = styled(TouchableOpacity)`
-  position: absolute;
-  top: ${height * 0.08};
-  right: 10%;
+  margin-left: auto;
 `;
 
 export const InfoIcon = styled(Icon).attrs({
   name: 'exit-to-app'
 })`
-  font-size: 24;
+  font-size: 24px;
   color: #fff;
 `;

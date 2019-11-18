@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   Keyboard,
-  View,
   Alert,
-  Platform
+  Platform,
+  ActivityIndicator
 } from 'react-native';
 
 import { resetPassword } from '../../services/auth';
 
-import { SignHeader } from '../../components';
-
 import {
   Container,
+  Logo,
+  FormContainer,
   InputContainer,
   InputTitle,
   Input,
@@ -25,7 +25,9 @@ import {
 } from './styles';
 
 export default function ForgotPassword({ navigation }) {
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState();
+  const emailInputRef = useRef();
 
   async function handleSubmit() {
     if (!email) return;
@@ -33,9 +35,15 @@ export default function ForgotPassword({ navigation }) {
     Keyboard.dismiss();
 
     try {
-      const response = await resetPassword(email);
+      setLoading(true);
+
+      await resetPassword(email);
     } catch (err) {
-      Alert.alert('Houve um erro ao tentar recuperar sua senha.');
+      Alert.alert('Opss...', 'Houve um erro ao tentar recuperar sua senha.', [
+        { text: 'OK', style: 'default', onPress: () => emailInputRef.current.focus() }
+      ]);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -46,10 +54,10 @@ export default function ForgotPassword({ navigation }) {
         style={{ flex: 1 }}
         enabled={Platform.OS === 'ios' ? true : false}
       >
-        <SignHeader />
-
         <Container>
-          <View>
+          <Logo />
+
+          <FormContainer>
             <InputTitle>E-MAIL</InputTitle>
             <InputContainer>
               <Input
@@ -58,20 +66,24 @@ export default function ForgotPassword({ navigation }) {
                 autoCorrect={false}
                 keyboardType="email-address"
                 onChangeText={text => setEmail(text)}
+                selectTextOnFocus
+                ref={emailInputRef}
+                returnKeyType="send"
+                onSubmitEditing={handleSubmit}
               />
               <EnvelopeIcon />
             </InputContainer>
-          </View>
 
-          <View>
             <SubmitButton onPress={handleSubmit}>
-              <SubmitButtonText>RECUPERAR SENHA</SubmitButtonText>
+              { loading 
+                  ? <ActivityIndicator color="#FFF" size="small" /> 
+                  : <SubmitButtonText>RECUPERAR SENHA</SubmitButtonText> }
             </SubmitButton>
 
             <BackToLoginButton onPress={() => navigation.navigate('Login')}>
               <BackToLoginButtonText>Voltar ao login</BackToLoginButtonText>
             </BackToLoginButton>
-          </View>
+          </FormContainer>
         </Container>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>

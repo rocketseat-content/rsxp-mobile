@@ -1,11 +1,6 @@
 import React from 'react';
 
 import {
-  Container,
-  SessionsContainer,
-  Session,
-  SessionTitlePlaceholder,
-  SessionDatePlaceholder,
   WorkshopsContainer,
   WorkshopCards,
   WorkshopCard,
@@ -40,23 +35,6 @@ export default function WorkshopsPlaceholder() {
   }
 
   return (
-    <Container>
-      <SessionsContainer>
-        <Session>
-          <SessionTitlePlaceholder autoRun />
-          <SessionDatePlaceholder autoRun />
-        </Session>
-        <Session>
-          <SessionTitlePlaceholder autoRun />
-          <SessionDatePlaceholder autoRun />
-        </Session>
-        <Session>
-          <SessionTitlePlaceholder autoRun />
-          <SessionDatePlaceholder autoRun />
-        </Session>
-      </SessionsContainer>
-
-      <WorkshopCards>{renderCards()}</WorkshopCards>
-    </Container>
+    <WorkshopCards>{renderCards()}</WorkshopCards>
   );
 }

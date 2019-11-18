@@ -1,39 +1,33 @@
 import styled from 'styled-components/native';
-import { Dimensions } from 'react-native';
+import { lighten } from 'polished';
+import { LinearGradient } from 'expo-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Constants from 'expo-constants';
 
-const { height, width } = Dimensions.get('window');
-
-import workshopDetailsMask from '../../../assets/workshop-details-mask';
-
-export const Container = styled.View``;
-
-export const SmallMask = styled(workshopDetailsMask)`
-  width: ${width};
-  height: ${width / 2.67};
-  margin-bottom: 20;
+export const Container = styled(LinearGradient).attrs((props) => ({
+  colors: [props.color, lighten(0.2, props.color)],
+  start: { x: 0.3, y: 1 },
+  end: { x: 1, y: 0 },
+}))`
+  padding: ${Constants.statusBarHeight + 10}px 25px 20px;
+  margin-bottom: 20px;
+  flex-direction: row;
 `;
 
 export const BackButton = styled.TouchableOpacity`
-  position: absolute;
-  top: ${height * 0.08 - 1};
-  left: 10%;
 `;
 
 export const BackButtonIcon = styled(Icon).attrs({
   name: 'chevron-left'
 })`
-  font-size: 24;
+  font-size: 24px;
   font-weight: bold;
   color: #fff;
 `;
 
 export const WorkshopTitle = styled.Text`
-  position: absolute;
-  width: ${width * 0.7};
-  top: ${height * 0.08};
-  left: 20%;
-  font-size: 18;
+  font-size: 18px;
   font-weight: bold;
   color: #fff;
+  margin-left: 15px;
 `;

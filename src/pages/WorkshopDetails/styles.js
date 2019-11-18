@@ -1,22 +1,24 @@
-import styled from 'styled-components/native';
-import { Dimensions } from 'react-native';
+import styled from 'styled-components/native';import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { RectButton } from 'react-native-gesture-handler';
 
-const { width, height } = Dimensions.get('window');
+export const Container = styled.View`
+  flex: 1;
+  background: #100F12;
+`;
 
-export const Container = styled.View``;
-
-export const Content = styled.ScrollView`
-  margin-horizontal: 30;
-  height: ${height - 250};
+export const Content = styled.ScrollView.attrs({
+  contentContainerStyle: { paddingHorizontal: 30 },
+})`
+  flex: 1;
 `;
 
 export const WorkshopTitle = styled.Text`
-  font-size: 20;
+  font-size: 20px;
+  line-height: 28px;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 15;
+  color: #fff;
+  margin-bottom: 15px;
 `;
 
 export const InstructorContainer = styled.View`
@@ -24,29 +26,32 @@ export const InstructorContainer = styled.View`
 `;
 
 export const InstructorAvatar = styled.Image`
-  width: 36;
-  height: 36;
-  border-radius: 18;
-  margin-right: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  margin-right: 10px;
+  background: #333;
 `;
 
 export const Instructor = styled.View`
   flex: 1;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 `;
 
-export const InstructorInfo = styled.View``;
+export const InstructorInfo = styled.View`
+`;
 
 export const InstructorName = styled.Text`
-  font-size: 14;
+  font-size: 14px;
   font-weight: bold;
-  color: #444;
+  color: #999;
 `;
 
 export const InstructorTitle = styled.Text`
-  font-size: 12;
-  color: #666;
+  font-size: 12px;
+  color: #777;
 `;
 
 export const IconsContainer = styled.View`
@@ -56,39 +61,39 @@ export const IconsContainer = styled.View`
 export const GithubIcon = styled(Icon).attrs({
   name: 'github'
 })`
-  font-size: 24;
-  color: #333;
-  margin-right: 15;
+  font-size: 24px;
+  color: #fff;
+  margin-right: 15px;
 `;
 
 export const LinkedinIcon = styled(Icon).attrs({
   name: 'linkedin'
 })`
-  font-size: 24;
+  font-size: 24px;
   color: #2087ff;
 `;
 
 export const Separator = styled.View`
-  width: ${width * 0.8};
-  height: 1px;
-  background-color: #eee;
-  margin-vertical: 15;
+  height: ${StyleSheet.hairlineWidth};
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 15px 0;
 `;
 
 export const WorkshopDescriptionContainer = styled.View``;
 
 export const WorkshopDescription = styled.Text`
-  font-size: 18;
-  color: #444;
+  font-size: 18px;
+  color: #ccc;
+  line-height: 24px;
 `;
 
 export const SubmitButton = styled(RectButton)`
   position: absolute;
-  bottom: 30;
-  left: 30;
-  right: 30;
-  height: 54;
-  border-radius: 30;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  height: 54px;
+  border-radius: 27px;
   background-color: #7159c1;
   justify-content: center;
   align-items: center;
@@ -96,6 +101,6 @@ export const SubmitButton = styled(RectButton)`
 
 export const SubmitButtonText = styled.Text`
   color: #fff;
-  font-size: 18;
+  font-size: 18px;
   font-weight: bold;
 `;

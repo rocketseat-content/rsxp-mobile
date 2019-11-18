@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   Keyboard,
-  View,
-  Platform
+  Platform,
+  ActivityIndicator,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { signInRequest } from '../../store/modules/auth/actions';
 
-import { SignHeader } from '../../components';
-
 import {
   Container,
+  Logo,
+  FormContainer,
   InputContainer,
   InputTitle,
   Input,
@@ -26,8 +26,12 @@ import {
 } from './styles';
 
 export default function Login({ navigation }) {
+  const loading = useSelector(state => state.auth.loading);
+
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  const passwordInputRef = useRef();
 
   const dispatch = useDispatch();
 
@@ -48,10 +52,10 @@ export default function Login({ navigation }) {
         behavior={Platform.OS === 'ios' ? 'padding' : null}
         style={{ flex: 1 }}
       >
-        <SignHeader />
-
         <Container>
-          <View>
+          <Logo />
+          
+          <FormContainer>
             <InputTitle>E-MAIL</InputTitle>
             <InputContainer>
               <Input
@@ -61,6 +65,8 @@ export default function Login({ navigation }) {
                 keyboardType="email-address"
                 onChangeText={text => setEmail(text)}
                 value={email}
+                returnKeyType="next"
+                onSubmitEditing={() => passwordInputRef.current.focus()}
               />
               <EnvelopeIcon />
             </InputContainer>
@@ -74,14 +80,17 @@ export default function Login({ navigation }) {
                 secureTextEntry
                 onChangeText={text => setPassword(text)}
                 value={password}
+                ref={passwordInputRef}
+                returnKeyType="send"
+                onSubmitEditing={handleSubmit}
               />
               <LockIcon />
             </InputContainer>
-          </View>
 
-          <View>
             <SubmitButton onPress={handleSubmit}>
-              <SubmitButtonText>EMBARCAR NO FOGUETE</SubmitButtonText>
+              { loading 
+                ? <ActivityIndicator color="#FFF" size="small" /> 
+                : <SubmitButtonText>EMBARCAR NO FOGUETE</SubmitButtonText> }
             </SubmitButton>
 
             <ForgotPasswordButton
@@ -91,7 +100,7 @@ export default function Login({ navigation }) {
                 Esqueci minha senha
               </ForgotPasswordButtonText>
             </ForgotPasswordButton>
-          </View>
+          </FormContainer>
         </Container>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>

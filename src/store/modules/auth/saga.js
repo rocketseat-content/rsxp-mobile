@@ -5,7 +5,7 @@ import NavigationService from '../../../services/navigation';
 
 import api from '../../../services/api';
 import { signin } from '../../../services/auth';
-import { signInSuccess } from './actions';
+import { signInSuccess, signInFailure } from './actions';
 
 import types from './types';
 
@@ -21,8 +21,10 @@ export function* signInRequest({ payload }) {
 
     yield put(signInSuccess(token));
 
-    NavigationService.navigate('Workshops');
+    NavigationService.navigate('WorkshopRoutes');
   } catch (err) {
+    yield put(signInFailure());
+
     Alert.alert(
       'Houve um erro no login. Verifique seus dados e tente novamente.'
     );
@@ -30,7 +32,7 @@ export function* signInRequest({ payload }) {
 }
 
 export function signOutRequest() {
-  NavigationService.navigate('Login');
+  NavigationService.navigate('Main');
 }
 
 export function setToken({ payload }) {

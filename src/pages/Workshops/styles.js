@@ -1,95 +1,109 @@
 import styled from 'styled-components/native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Dimensions } from 'react-native';
-
-const { width } = Dimensions.get('window');
 
 export const Container = styled.View`
-  margin-bottom: 415;
+  flex: 1;
+  background: #100F12;
 `;
 
-export const Content = styled.View``;
-
-export const SessionsContainer = styled.View`
-  flex-direction: row;
-  padding-bottom: 10;
-  border-bottom-width: 4;
-  border-color: #7159c1;
-`;
-
-export const WorkshopCards = styled.FlatList`
-  width: ${width * 0.9};
-  margin-left: ${width * 0.1};
-`;
-
-export const Session = styled.View`
-  align-items: center;
+export const Content = styled.View`
   flex: 1;
 `;
 
+export const SessionsContainer = styled.View`
+  flex-direction: row;
+  border-bottom-width: 1px;
+  border-color: rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+`;
+
+export const Session = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.7,
+})`
+  flex: 1;
+  align-items: center;
+`;
+
 export const SessionTitle = styled.Text`
-  font-size: 16;
-  color: #7159c1;
+  font-size: 16px;
+  color: #fff;
   opacity: ${props => (props.isSelected ? 1 : 0.4)};
   font-weight: bold;
-  margin-bottom: 5;
+  margin-bottom: 5px;
 `;
 
 export const SessionDate = styled.Text`
-  font-size: 13;
+  font-size: 13px;
   color: #999;
   opacity: ${props => (props.isSelected ? 1 : 0.4)};
   font-weight: bold;
-  margin-bottom: 5;
+  margin-bottom: 5px;
 `;
 
-export const WorkshopsContainer = styled.TouchableOpacity`
-  margin-top: 15;
-  width: 100%;
-  height: 106;
+export const WorkshopCards = styled.FlatList`
+  margin: 20px 0 0 10%;
+`;
 
-  border-top-left-radius: 8;
-  border-bottom-left-radius: 8;
+export const Empty = styled.Text`
+  text-align: center;
+  color: #999;
+  margin-right: 10%;
+  font-size: 15px;
+`;
+
+export const WorkshopCard = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.7,
+})`
+  width: 100%;
+  height: 106px;
+  align-items: stretch;
+  background: #222;
+  margin-bottom: 15px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  flex-direction: row;
   overflow: hidden;
 `;
 
-export const WorkshopCard = styled(LinearGradient).attrs({
-  colors: ['#ccc', '#aaa'],
+export const TechColor = styled(LinearGradient).attrs({
+  colors: ['#111', '#333'],
   start: { x: 0, y: 0.75 },
   end: { x: 1, y: 0.25 },
   locations: [0, 1]
 })`
-  width: 100%;
-  height: 106;
-  justify-content: center;
-  padding-top: 30;
-  padding-bottom: 30;
+  align-self: stretch;
+  width: 8px;
+`;
+
+export const WorkshopInfo = styled.View`
+  flex: 1;
+  justify-content: space-between;
+  padding: 15px 0;
 `;
 
 export const WorkshopTitle = styled.Text`
-  margin-bottom: 5;
-  margin-horizontal: 15;
+  margin: 0 15px 5px;
   color: #fff;
-  font-size: 16;
+  font-size: 16px;
   font-weight: bold;
 `;
 
 export const WorkshopInstructorContainer = styled.View`
   flex-direction: row;
   align-items: center;
-  margin-top: 15;
-  margin-left: 15;
+  margin-left: 15px;
 `;
 
 export const WorkshopInstructorPicture = styled.Image`
-  width: 24;
-  height: 24;
-  border-radius: 12;
-  margin-right: 5;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  margin-right: 5px;
+  background: #333;
 `;
 
 export const WorkshopInstructorName = styled.Text`
   color: #fff;
-  font-size: 13;
+  font-size: 13px;
   font-weight: bold;
 `;
