@@ -58,11 +58,7 @@ export default function WorkshopDetails({ navigation }) {
               <>
                 <WorkshopTitle>{workshop.title}</WorkshopTitle>
                 <InstructorContainer>
-                  <InstructorAvatar
-                    source={{
-                      uri: workshop.user.avatar_url
-                    }}
-                  />
+                  <InstructorAvatar uri={workshop.user.avatar_url} />
                   <Instructor>
                     <InstructorInfo>
                       <InstructorName>{workshop.user.name}</InstructorName>

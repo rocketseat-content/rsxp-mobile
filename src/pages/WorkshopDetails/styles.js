@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { RectButton } from 'react-native-gesture-handler';
+import { Image } from 'react-native-expo-image-cache';
 
 export const Container = styled.View`
   flex: 1;
@@ -25,7 +26,7 @@ export const InstructorContainer = styled.View`
   flex-direction: row;
 `;
 
-export const InstructorAvatar = styled.Image`
+export const InstructorAvatar = styled(Image)`
   width: 36px;
   height: 36px;
   border-radius: 18px;

@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Image } from "react-native-expo-image-cache";
 
 export const Container = styled.View`
   flex: 1;
@@ -94,7 +95,7 @@ export const WorkshopInstructorContainer = styled.View`
   margin-left: 15px;
 `;
 
-export const WorkshopInstructorPicture = styled.Image`
+export const WorkshopInstructorPicture = styled(Image)`
   width: 24px;
   height: 24px;
   border-radius: 12px;

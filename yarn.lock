@@ -2110,6 +2110,11 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
+crypto-js@^3.1.9-1:
+  version "3.1.9-1"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
+  integrity sha1-/aGedh/Ad+Af+/3G6f38WeiAbNg=
+
 css-color-keywords@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
@@ -2650,6 +2655,13 @@ expo-asset@~6.0.0:
     blueimp-md5 "^2.10.0"
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
+
+expo-blur@~6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/expo-blur/-/expo-blur-6.0.0.tgz#c63e7c464e1a8137dae8a71f893426a538eb9ed9"
+  integrity sha512-UqMaE2G2DfoeEJCYFfFLXq9nBeD0m3G1IISpxmdLXHDvzQuFl0kzNAZXX81a9sByWTV85KsxxnxoLImbfxV33A==
+  dependencies:
+    prop-types "^15.6.0"
 
 expo-constants@~6.0.0:
   version "6.0.0"
@@ -5216,6 +5228,14 @@ react-native-branch@~3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-3.0.1.tgz#5b07b61cbd290168cd3c3662e017ebe0f356d2ca"
   integrity sha512-vbcYxPZlpF5f39GAEUF8kuGQqCNeD3E6zEdvtOq8oCGZunHXlWlKgAS6dgBKCvsHvXgHuMtpvs39VgOp8DaKig==
+
+react-native-expo-image-cache@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-expo-image-cache/-/react-native-expo-image-cache-4.1.0.tgz#649cbe9786249134d3eafed5baba50bbfa80c029"
+  integrity sha512-U6xHtuyalNZThhM11lu4+mRNSpJFkdh4dSLbWkKAj5QfY63cKlTnDVtv8c88njn71GHL4exEzf8hNKBMWhH37Q==
+  dependencies:
+    crypto-js "^3.1.9-1"
+    lodash "^4.17.4"
 
 react-native-gesture-handler@~1.3.0:
   version "1.3.0"

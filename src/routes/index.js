@@ -3,7 +3,6 @@ import {
   createAppContainer,
   createStackNavigator,
   createBottomTabNavigator,
-  createSwitchNavigator,
 } from 'react-navigation';
 
 import createAnimatedSwitchNavigator from 'react-navigation-animated-switch';
