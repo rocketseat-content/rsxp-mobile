@@ -15,13 +15,17 @@ export function* signInRequest({ payload }) {
 
     const response = yield call(signin, email, password);
 
-    const { token } = response.data;
+    const { token, accepted_regulation } = response.data;
 
     api.defaults.headers.Authorization = `bearer ${token}`;
 
-    yield put(signInSuccess(token));
+    yield put(signInSuccess(token, accepted_regulation));
 
-    NavigationService.navigate('WorkshopRoutes');
+    if (!accepted_regulation) {
+      NavigationService.navigate('RegulationReview');
+    } else {
+      NavigationService.navigate('AppRoutes');
+    }
   } catch (err) {
     yield put(signInFailure());
 
@@ -32,7 +36,7 @@ export function* signInRequest({ payload }) {
 }
 
 export function signOutRequest() {
-  NavigationService.navigate('Main');
+  NavigationService.navigate('SignRoutes');
 }
 
 export function setToken({ payload }) {

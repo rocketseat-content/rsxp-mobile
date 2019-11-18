@@ -10,12 +10,13 @@ import { Transition } from 'react-native-reanimated';
 
 import Login from '../pages/Login';
 import ForgotPassword from '../pages/ForgotPassword';
+import RegulationReview from '../pages/RegulationReview';
 
 import Workshops from '../pages/Workshops';
 import WorkshopDetails from '../pages/WorkshopDetails';
 import Profile from '../pages/Profile';
 
-const Main = createAnimatedSwitchNavigator({
+const SignRoutes = createAnimatedSwitchNavigator({
   Login,
   ForgotPassword
 }, {
@@ -53,7 +54,7 @@ const BottomRoutes = createBottomTabNavigator(
   }
 );
 
-const WorkshopRoutes = createStackNavigator(
+const AppRoutes = createStackNavigator(
   {
     BottomRoutes,
     WorkshopDetails
@@ -63,15 +64,28 @@ const WorkshopRoutes = createStackNavigator(
   }
 );
 
-export default signed =>
+function getInitialRoute(signed, accepted_regulation) {
+  if (signed) {
+    if (accepted_regulation) {
+      return 'AppRoutes';
+    } else {
+      return 'RegulationReview';
+    }
+  } else {
+    return 'SignRoutes';
+  }
+}
+
+export default (signed, accepted_regulation) =>
   createAppContainer(
     createAnimatedSwitchNavigator(
       {
-        Main,
-        WorkshopRoutes
+        SignRoutes,
+        RegulationReview,
+        AppRoutes
       },
       {
-        initialRouteName: signed ? 'WorkshopRoutes' : 'Main',
+        initialRouteName: getInitialRoute(signed, accepted_regulation),
         transition: (
           <Transition.Together>
             <Transition.Out 

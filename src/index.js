@@ -4,12 +4,12 @@ import { useSelector } from 'react-redux';
 
 import NavigationService from '../src/services/navigation';
 
-import Routes from './routes';
+import createRoutes from './routes';
 
 export default function App() {
-  const signed = useSelector(state => state.auth.signed, () => true);
+  const { signed, accepted_regulation } = useSelector(state => state.auth, () => true);
 
-  const RoutesWrapper = Routes(signed);
+  const RoutesWrapper = createRoutes(signed, accepted_regulation);
 
   return (
     <View style={{ flex: 1, backgroundColor: '#100F12' }}>
