@@ -1,10 +1,10 @@
 import styled from 'styled-components/native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Image } from "react-native-expo-image-cache";
+import { Image } from 'react-native-expo-image-cache';
 
 export const Container = styled.View`
   flex: 1;
-  background: #100F12;
+  background: #100f12;
 `;
 
 export const Content = styled.View`
@@ -70,7 +70,7 @@ export const TechColor = styled(LinearGradient).attrs({
   colors: ['#111', '#333'],
   start: { x: 0, y: 0.75 },
   end: { x: 1, y: 0.25 },
-  locations: [0, 1]
+  locations: [0, 1],
 })`
   align-self: stretch;
   width: 8px;

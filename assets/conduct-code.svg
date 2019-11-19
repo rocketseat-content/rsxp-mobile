@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="108px" height="150px" viewBox="0 0 108 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>Termos_de_Uso</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="-1.11022302e-14%" y1="100%" x2="100%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#0076FF" offset="0%"></stop>
+            <stop stop-color="#393091" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="82%" x2="100%" y2="82.4%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#9DC4FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="New" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="splash" transform="translate(-501.000000, -302.000000)" fill-rule="nonzero">
+            <g id="Termos_de_Uso" transform="translate(501.000000, 302.000000)">
+                <path d="M101.838281,150 L8.08828125,150 L8.08828125,0 L101.838281,0 L101.838281,150 Z M19.8070312,11.71875 L19.8070312,138.28125 L90.1195312,138.28125 L90.1195312,11.71875 L19.8070312,11.71875 Z" id="Exclusion_1" fill="url(#linearGradient-1)"></path>
+                <path d="M33.984375,57.271875 L0,69.684375 L0,78.2179688 L33.984375,90.5015625 L33.984375,80.9320313 L13.5539063,73.8867188 L33.984375,66.8390625 L33.984375,57.271875 Z M37.4273437,102.853125 L47.6109375,102.853125 L70.3851562,46.603125 L60.2015625,46.603125 L37.4273437,102.853125 Z M73.828125,57.271875 L73.828125,66.8414063 L94.2632812,73.8890625 L73.828125,80.934375 L73.828125,90.5039063 L107.8125,78.0820313 L107.8125,69.5484375 L73.828125,57.271875 Z" id="Path_9008" fill="url(#linearGradient-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

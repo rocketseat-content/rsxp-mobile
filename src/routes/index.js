@@ -16,21 +16,20 @@ import Workshops from '../pages/Workshops';
 import WorkshopDetails from '../pages/WorkshopDetails';
 import Profile from '../pages/Profile';
 
-const SignRoutes = createAnimatedSwitchNavigator({
-  Login,
-  ForgotPassword
-}, {
-  transition: (
-    <Transition.Together>
-      <Transition.Out
-        type="fade"
-        durationMs={200}
-        interpolation="easeIn"
-      />
-      <Transition.In type="fade" durationMs={500} />
-    </Transition.Together>
-  ),
-});
+const SignRoutes = createAnimatedSwitchNavigator(
+  {
+    Login,
+    ForgotPassword,
+  },
+  {
+    transition: (
+      <Transition.Together>
+        <Transition.Out type="fade" durationMs={200} interpolation="easeIn" />
+        <Transition.In type="fade" durationMs={500} />
+      </Transition.Together>
+    ),
+  }
+);
 
 const BottomRoutes = createBottomTabNavigator(
   {
@@ -45,22 +44,22 @@ const BottomRoutes = createBottomTabNavigator(
         height: 54,
         paddingVertical: 5,
         backgroundColor: '#222',
-        borderTopColor: "rgba(255, 255, 255, 0.4)"
+        borderTopColor: 'rgba(255, 255, 255, 0.4)',
       },
       labelStyle: {
-        fontSize: 13
-      }
-    }
+        fontSize: 13,
+      },
+    },
   }
 );
 
 const AppRoutes = createStackNavigator(
   {
     BottomRoutes,
-    WorkshopDetails
+    WorkshopDetails,
   },
   {
-    headerMode: 'none'
+    headerMode: 'none',
   }
 );
 
@@ -68,12 +67,10 @@ function getInitialRoute(signed, accepted_regulation) {
   if (signed) {
     if (accepted_regulation) {
       return 'AppRoutes';
-    } else {
-      return 'RegulationReview';
     }
-  } else {
-    return 'SignRoutes';
+    return 'RegulationReview';
   }
+  return 'SignRoutes';
 }
 
 export default (signed, accepted_regulation) =>
@@ -82,13 +79,13 @@ export default (signed, accepted_regulation) =>
       {
         SignRoutes,
         RegulationReview,
-        AppRoutes
+        AppRoutes,
       },
       {
         initialRouteName: getInitialRoute(signed, accepted_regulation),
         transition: (
           <Transition.Together>
-            <Transition.Out 
+            <Transition.Out
               type="fade"
               durationMs={300}
               interpolation="easeOut"

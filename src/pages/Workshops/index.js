@@ -24,7 +24,7 @@ import {
   WorkshopTitle,
   WorkshopInstructorContainer,
   WorkshopInstructorPicture,
-  WorkshopInstructorName
+  WorkshopInstructorName,
 } from './styles';
 
 export default function Workshops({ navigation }) {
@@ -32,7 +32,7 @@ export default function Workshops({ navigation }) {
     { id: 1, title: 'SESSÃO 1', time: '13:30h' },
     { id: 2, title: 'SESSÃO 2', time: '15:30h' },
     { id: 3, title: 'SESSÃO 3', time: '16:30h' },
-  ])
+  ]);
 
   const [currentSection, setCurrentSection] = useState(1);
   const [workshops, setWorkshops] = useState([]);
@@ -45,13 +45,15 @@ export default function Workshops({ navigation }) {
 
       const response = await api.get('/workshops', {
         params: {
-          section: currentSection
-        }
+          section: currentSection,
+        },
       });
 
       setWorkshops(response.data);
     } catch (err) {
-      Alert.alert('Erro ao obter lista de workshops, tente novamente mais tarde!');
+      Alert.alert(
+        'Erro ao obter lista de workshops, tente novamente mais tarde!'
+      );
     } finally {
       setRefreshing(false);
     }
@@ -62,18 +64,23 @@ export default function Workshops({ navigation }) {
 
     reloadWorkshops().then(() => {
       setLoading(false);
-    })
+    });
   }, [currentSection]);
 
   function renderWorkshops({ item: workshop }) {
     return (
-      <WorkshopCard onPress={() => navigation.navigate('WorkshopDetails', { workshop })}>
-        <TechColor colors={
-          (workshop.color && [
-            workshop.color,
-            lighten(0.2, workshop.color)
-          ]) || ['#7159c1', '#c759e0']
-        } />
+      <WorkshopCard
+        onPress={() => navigation.navigate('WorkshopDetails', { workshop })}
+      >
+        <TechColor
+          colors={
+            (workshop.color && [
+              workshop.color,
+              lighten(0.2, workshop.color),
+            ]) || ['#7159c1', '#c759e0']
+          }
+       
+        />
 
         <WorkshopInfo>
           <WorkshopTitle numberOfLines={2}>{workshop.title}</WorkshopTitle>
@@ -94,7 +101,10 @@ export default function Workshops({ navigation }) {
       <Content>
         <SessionsContainer>
           {sections.map(session => (
-            <Session key={String(session.id)} onPress={() => setCurrentSection(session.id)}>
+            <Session
+              key={String(session.id)}
+              onPress={() => setCurrentSection(session.id)}
+            >
               <SessionTitle isSelected={session.id === currentSection}>
                 {session.title}
               </SessionTitle>
@@ -114,7 +124,7 @@ export default function Workshops({ navigation }) {
             showsVerticalScrollIndicator={false}
             onRefresh={reloadWorkshops}
             refreshing={refreshing}
-            ListFooterComponent={<View style={{ height: 20 }}></View>}
+            ListFooterComponent={<View style={{ height: 20 }} />}
             ListEmptyComponent={<Empty>Nenhum workshop nessa data.</Empty>}
           />
         )}
@@ -125,10 +135,6 @@ export default function Workshops({ navigation }) {
 
 Workshops.navigationOptions = {
   tabBarIcon: ({ tintColor }) => (
-    <Icon
-      name="code"
-      size={24}
-      color={tintColor}
-    />
-  )
-}
+    <Icon name="code" size={24} color={tintColor} />
+  ),
+};

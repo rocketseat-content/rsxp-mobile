@@ -8,7 +8,7 @@ import logoImage from '../../../assets/logo.png';
 export const Container = styled.SafeAreaView`
   flex: 1;
   justify-content: center;
-  background: #100F12;
+  background: #100f12;
 `;
 
 export const Logo = styled.Image.attrs({
@@ -36,7 +36,7 @@ export const InputContainer = styled.View`
 `;
 
 export const Input = styled.TextInput.attrs({
-  placeholderTextColor: '#999'
+  placeholderTextColor: '#999',
 })`
   height: 48px;
   font-size: 17px;
@@ -45,14 +45,14 @@ export const Input = styled.TextInput.attrs({
 `;
 
 export const EnvelopeIcon = styled(Icon).attrs({
-  name: 'mail-outline'
+  name: 'mail-outline',
 })`
   color: #999;
   font-size: 20px;
 `;
 
 export const LockIcon = styled(Icon).attrs({
-  name: 'lock-outline'
+  name: 'lock-outline',
 })`
   color: #999;
   font-size: 20px;
@@ -66,8 +66,23 @@ export const SubmitButton = styled(RectButton)`
 `;
 
 export const SubmitButtonText = styled.Text`
-  color: #E6E6E6;
+  color: #e6e6e6;
   font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2.8px;
+`;
+
+export const NewAccountButton = styled(RectButton)`
+  height: 42px;
+  background-color: #00f5ff;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+`;
+
+export const NewAccountButtonText = styled.Text`
+  color: #100f12;
+  font-size: 13px;
   font-weight: bold;
   letter-spacing: 2.8px;
 `;

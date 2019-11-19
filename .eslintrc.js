@@ -16,6 +16,11 @@ module.exports = {
   },
   plugins: ['react', 'prettier'],
   rules: {
-    'react/jsx-filename-extension': 'off'
+    'prettier/prettier': 'error',
+    'react/prop-types': 'off',
+    'react/jsx-filename-extension': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'camelcase': 'off'
   }
 };

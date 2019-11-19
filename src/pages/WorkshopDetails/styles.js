@@ -1,11 +1,12 @@
-import styled from 'styled-components/native';import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
+import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { RectButton } from 'react-native-gesture-handler';
 import { Image } from 'react-native-expo-image-cache';
 
 export const Container = styled.View`
   flex: 1;
-  background: #100F12;
+  background: #100f12;
 `;
 
 export const Content = styled.ScrollView.attrs({
@@ -41,8 +42,7 @@ export const Instructor = styled.View`
   align-items: center;
 `;
 
-export const InstructorInfo = styled.View`
-`;
+export const InstructorInfo = styled.View``;
 
 export const InstructorName = styled.Text`
   font-size: 14px;
@@ -60,7 +60,7 @@ export const IconsContainer = styled.View`
 `;
 
 export const GithubIcon = styled(Icon).attrs({
-  name: 'github'
+  name: 'github',
 })`
   font-size: 24px;
   color: #fff;
@@ -68,10 +68,10 @@ export const GithubIcon = styled(Icon).attrs({
 `;
 
 export const LinkedinIcon = styled(Icon).attrs({
-  name: 'linkedin'
+  name: 'linkedin',
 })`
   font-size: 24px;
-  color: #2087ff;
+  color: #fff;
 `;
 
 export const Separator = styled.View`

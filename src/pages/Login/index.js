@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
+import * as WebBrowser from 'expo-web-browser';
 
 import { signInRequest } from '../../store/modules/auth/actions';
 
@@ -21,8 +22,10 @@ import {
   LockIcon,
   SubmitButton,
   SubmitButtonText,
+  NewAccountButton,
+  NewAccountButtonText,
   ForgotPasswordButton,
-  ForgotPasswordButtonText
+  ForgotPasswordButtonText,
 } from './styles';
 
 export default function Login({ navigation }) {
@@ -43,6 +46,15 @@ export default function Login({ navigation }) {
     dispatch(signInRequest(email, password));
   }
 
+  function handleCreateAccount() {
+    WebBrowser.openBrowserAsync(
+      'https://rocketseat.com.br/experience/criar-senha',
+      {
+        toolbarColor: '#100f12',
+      }
+    );
+  }
+
   return (
     <TouchableWithoutFeedback
       onPress={Keyboard.dismiss}
@@ -54,7 +66,7 @@ export default function Login({ navigation }) {
       >
         <Container>
           <Logo />
-          
+
           <FormContainer>
             <InputTitle>E-MAIL</InputTitle>
             <InputContainer>
@@ -88,10 +100,22 @@ export default function Login({ navigation }) {
             </InputContainer>
 
             <SubmitButton onPress={handleSubmit}>
-              { loading 
-                ? <ActivityIndicator color="#FFF" size="small" /> 
-                : <SubmitButtonText>EMBARCAR NO FOGUETE</SubmitButtonText> }
+              {loading ? (
+                <ActivityIndicator color="#FFF" size="small" />
+              ) : (
+                <SubmitButtonText>EMBARCAR NO FOGUETE</SubmitButtonText>
+              )}
             </SubmitButton>
+
+            <NewAccountButton onPress={handleCreateAccount}>
+              {loading ? (
+                <ActivityIndicator color="#FFF" size="small" />
+              ) : (
+                <NewAccountButtonText>
+                  AINDA NÃO TENHO CONTA
+                </NewAccountButtonText>
+              )}
+            </NewAccountButton>
 
             <ForgotPasswordButton
               onPress={() => navigation.navigate('ForgotPassword')}

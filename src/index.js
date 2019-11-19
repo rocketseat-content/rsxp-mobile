@@ -2,19 +2,22 @@ import React from 'react';
 import { View } from 'react-native';
 import { useSelector } from 'react-redux';
 
-import NavigationService from '../src/services/navigation';
+import NavigationService from './services/navigation';
 
 import createRoutes from './routes';
 
 export default function App() {
-  const { signed, accepted_regulation } = useSelector(state => state.auth, () => true);
+  const { signed, accepted_regulation } = useSelector(
+    state => state.auth,
+    () => true
+  );
 
   const RoutesWrapper = createRoutes(signed, accepted_regulation);
 
   return (
     <View style={{ flex: 1, backgroundColor: '#100F12' }}>
       <RoutesWrapper
-        ref={navigatorRef => NavigationService.setTopLevelNavigator(navigatorRef)}
+        ref={navRef => NavigationService.setTopLevelNavigator(navRef)}
       />
     </View>
   );
