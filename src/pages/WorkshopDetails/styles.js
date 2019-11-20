@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 import { StyleSheet } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { FontAwesome5 } from '@expo/vector-icons';
-import { RectButton } from 'react-native-gesture-handler';
 import { Image } from 'react-native-expo-image-cache';
 
 const AnimatedView = Animatable.View;
@@ -97,7 +96,7 @@ const buttonColors = {
   default: '#7159c1',
 };
 
-export const SubmitButton = styled(RectButton)`
+export const SubmitButton = styled.TouchableOpacity`
   position: absolute;
   bottom: 30px;
   left: 30px;

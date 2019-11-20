@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 import { MaterialIcons } from '@expo/vector-icons';
-import { RectButton } from 'react-native-gesture-handler';
 import { StyleSheet } from 'react-native';
 
 import logoImage from '../../../assets/logo.png';
@@ -58,7 +57,7 @@ export const LockIcon = styled(MaterialIcons).attrs({
   font-size: 20px;
 `;
 
-export const SubmitButton = styled(RectButton)`
+export const SubmitButton = styled.TouchableOpacity`
   height: 50px;
   background-color: #7159c1;
   justify-content: center;
@@ -72,7 +71,7 @@ export const SubmitButtonText = styled.Text`
   letter-spacing: 2.8px;
 `;
 
-export const NewAccountButton = styled(RectButton)`
+export const NewAccountButton = styled.TouchableOpacity`
   height: 42px;
   background-color: #00f5ff;
   justify-content: center;

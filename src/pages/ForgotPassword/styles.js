@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 import { MaterialIcons } from '@expo/vector-icons';
-import { RectButton } from 'react-native-gesture-handler';
 import { StyleSheet } from 'react-native';
 
 import logoImage from '../../../assets/logo.png';
@@ -51,7 +50,7 @@ export const EnvelopeIcon = styled(MaterialIcons).attrs({
   font-size: 20px;
 `;
 
-export const SubmitButton = styled(RectButton)`
+export const SubmitButton = styled.TouchableOpacity`
   height: 50px;
   background-color: #7159c1;
   justify-content: center;

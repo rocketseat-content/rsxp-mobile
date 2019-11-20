@@ -67,7 +67,7 @@ function Workshops({ navigation, isFocused }) {
     if (isFocused && firstLoad) {
       reloadWorkshops();
     }
-  }, [firstLoad, isFocused]);
+  }, [isFocused]); // eslint-ignore-line
 
   useEffect(() => {
     setLoading(true);

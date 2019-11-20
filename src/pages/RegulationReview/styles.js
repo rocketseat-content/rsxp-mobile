@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { RectButton } from 'react-native-gesture-handler';
 import { TabBar } from 'react-native-tab-view';
 import Constants from 'expo-constants';
 
@@ -67,7 +66,7 @@ export const Regulation = styled.Text`
   line-height: 26px;
 `;
 
-export const ApproveButton = styled(RectButton)`
+export const ApproveButton = styled.TouchableOpacity`
   position: absolute;
   bottom: 90px;
   left: 30px;
@@ -85,7 +84,7 @@ export const ApproveButtonText = styled.Text`
   letter-spacing: 2.8px;
 `;
 
-export const LogoutButton = styled(RectButton)`
+export const LogoutButton = styled.TouchableOpacity`
   position: absolute;
   bottom: 30px;
   left: 30px;

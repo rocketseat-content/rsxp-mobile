@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { RectButton } from 'react-native-gesture-handler';
 import { StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 
@@ -58,7 +57,7 @@ export const Input = styled.TextInput.attrs({
   flex: 1;
 `;
 
-export const SubmitButton = styled(RectButton)`
+export const SubmitButton = styled.TouchableOpacity`
   height: 50px;
   background-color: #7159c1;
   justify-content: center;

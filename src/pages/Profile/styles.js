@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 import { StyleSheet, Platform } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
 import Constants from 'expo-constants';
 
 export const Container = styled.KeyboardAvoidingView.attrs({
@@ -70,7 +69,7 @@ export const SwitchText = styled.Text`
   text-transform: uppercase;
 `;
 
-export const SubmitButton = styled(RectButton)`
+export const SubmitButton = styled.TouchableOpacity`
   height: 50px;
   background-color: #7159c1;
   justify-content: center;

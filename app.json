@@ -17,10 +17,12 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": ["**/*"],
+    "android": {
+      "package": "com.rocketseat.rsxp"
+    },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.rocketseat.rsxp",
-      "userInterfaceStyle": "dark"
+      "bundleIdentifier": "com.rocketseat.rsxp"
     },
     "packagerOpts": {
       "config": "metro.config.js",
