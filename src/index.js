@@ -1,24 +1,26 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, YellowBox } from 'react-native';
 import { useSelector } from 'react-redux';
+import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 
 import NavigationService from './services/navigation';
 
 import createRoutes from './routes';
 
-export default function App() {
-  const { signed, accepted_regulation } = useSelector(
-    state => state.auth,
-    () => true
-  );
+YellowBox.ignoreWarnings(['ReactNative.NativeModules.LottieAnimationView']);
 
-  const RoutesWrapper = createRoutes(signed, accepted_regulation);
+export default function App() {
+  const { signed, user } = useSelector(state => state.auth, () => true);
+
+  const RoutesWrapper = createRoutes(signed, user.accepted_regulation);
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#100F12' }}>
-      <RoutesWrapper
-        ref={navRef => NavigationService.setTopLevelNavigator(navRef)}
-      />
-    </View>
+    <ActionSheetProvider>
+      <View style={{ flex: 1, backgroundColor: '#100F12' }}>
+        <RoutesWrapper
+          ref={navRef => NavigationService.setTopLevelNavigator(navRef)}
+        />
+      </View>
+    </ActionSheetProvider>
   );
 }

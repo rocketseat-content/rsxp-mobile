@@ -41,6 +41,13 @@ export const SessionDate = styled.Text`
   margin-bottom: 5px;
 `;
 
+export const SubscriptionStatus = styled.Text`
+  color: #999;
+  margin: 20px 0 0;
+  text-align: center;
+  font-size: 13px;
+`;
+
 export const WorkshopCards = styled.FlatList`
   margin: 20px 0 0 10%;
 `;
@@ -107,4 +114,11 @@ export const WorkshopInstructorName = styled.Text`
   color: #fff;
   font-size: 13px;
   font-weight: bold;
+`;
+
+export const Subscribed = styled.Text`
+  color: #00f5ff;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 10px;
 `;

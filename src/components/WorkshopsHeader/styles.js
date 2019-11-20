@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import { TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
 
@@ -17,9 +17,7 @@ export const Container = styled(LinearGradient).attrs({
   align-items: center;
 `;
 
-export const SmallLogo = styled(smallLogo)`
-  
-`;
+export const SmallLogo = styled(smallLogo)``;
 
 export const WorkshopsTitleSeparator = styled.View`
   width: 1px;
@@ -39,8 +37,8 @@ export const InfoIconButton = styled(TouchableOpacity)`
   margin-left: auto;
 `;
 
-export const InfoIcon = styled(Icon).attrs({
-  name: 'exit-to-app'
+export const InfoIcon = styled(MaterialIcons).attrs({
+  name: 'exit-to-app',
 })`
   font-size: 24px;
   color: #fff;

@@ -1,10 +1,10 @@
 import styled from 'styled-components/native';
 import { lighten } from 'polished';
 import { LinearGradient } from 'expo-linear-gradient';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { MaterialIcons } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 
-export const Container = styled(LinearGradient).attrs((props) => ({
+export const Container = styled(LinearGradient).attrs(props => ({
   colors: [props.color, lighten(0.2, props.color)],
   start: { x: 0.3, y: 1 },
   end: { x: 1, y: 0 },
@@ -14,11 +14,10 @@ export const Container = styled(LinearGradient).attrs((props) => ({
   flex-direction: row;
 `;
 
-export const BackButton = styled.TouchableOpacity`
-`;
+export const BackButton = styled.TouchableOpacity``;
 
-export const BackButtonIcon = styled(Icon).attrs({
-  name: 'chevron-left'
+export const BackButtonIcon = styled(MaterialIcons).attrs({
+  name: 'chevron-left',
 })`
   font-size: 24px;
   font-weight: bold;

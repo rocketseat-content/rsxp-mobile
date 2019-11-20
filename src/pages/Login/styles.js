@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
 import { StyleSheet } from 'react-native';
 
@@ -44,14 +44,14 @@ export const Input = styled.TextInput.attrs({
   flex: 1;
 `;
 
-export const EnvelopeIcon = styled(Icon).attrs({
+export const EnvelopeIcon = styled(MaterialIcons).attrs({
   name: 'mail-outline',
 })`
   color: #999;
   font-size: 20px;
 `;
 
-export const LockIcon = styled(Icon).attrs({
+export const LockIcon = styled(MaterialIcons).attrs({
   name: 'lock-outline',
 })`
   color: #999;

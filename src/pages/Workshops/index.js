@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Alert } from 'react-native';
 import { lighten } from 'polished';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { withNavigationFocus } from 'react-navigation';
 
 import api from '../../services/api';
 
@@ -16,6 +17,7 @@ import {
   Session,
   SessionTitle,
   SessionDate,
+  SubscriptionStatus,
   TechColor,
   WorkshopInfo,
   WorkshopCards,
@@ -25,15 +27,17 @@ import {
   WorkshopInstructorContainer,
   WorkshopInstructorPicture,
   WorkshopInstructorName,
+  Subscribed,
 } from './styles';
 
-export default function Workshops({ navigation }) {
+function Workshops({ navigation, isFocused }) {
   const [sections] = useState([
     { id: 1, title: 'SESSÃO 1', time: '13:30h' },
     { id: 2, title: 'SESSÃO 2', time: '15:30h' },
     { id: 3, title: 'SESSÃO 3', time: '16:30h' },
   ]);
 
+  const [firstLoad, setFirstLoad] = useState(false);
   const [currentSection, setCurrentSection] = useState(1);
   const [workshops, setWorkshops] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -60,10 +64,17 @@ export default function Workshops({ navigation }) {
   }
 
   useEffect(() => {
+    if (isFocused && firstLoad) {
+      reloadWorkshops();
+    }
+  }, [firstLoad, isFocused]);
+
+  useEffect(() => {
     setLoading(true);
 
     reloadWorkshops().then(() => {
       setLoading(false);
+      setFirstLoad(true);
     });
   }, [currentSection]);
 
@@ -79,7 +90,6 @@ export default function Workshops({ navigation }) {
               lighten(0.2, workshop.color),
             ]) || ['#7159c1', '#c759e0']
           }
-       
         />
 
         <WorkshopInfo>
@@ -89,6 +99,10 @@ export default function Workshops({ navigation }) {
             <WorkshopInstructorName>
               {workshop.user.name}
             </WorkshopInstructorName>
+
+            {!!Number(workshop.__meta__.hasSubscribed) && (
+              <Subscribed>INSCRITO</Subscribed>
+            )}
           </WorkshopInstructorContainer>
         </WorkshopInfo>
       </WorkshopCard>
@@ -114,6 +128,9 @@ export default function Workshops({ navigation }) {
             </Session>
           ))}
         </SessionsContainer>
+        <SubscriptionStatus>
+          Você pode se inscrever em um workshop por seção.
+        </SubscriptionStatus>
         {loading ? (
           <Placeholder />
         ) : (
@@ -135,6 +152,8 @@ export default function Workshops({ navigation }) {
 
 Workshops.navigationOptions = {
   tabBarIcon: ({ tintColor }) => (
-    <Icon name="code" size={24} color={tintColor} />
+    <MaterialIcons name="code" size={24} color={tintColor} />
   ),
 };
+
+export default withNavigationFocus(Workshops);

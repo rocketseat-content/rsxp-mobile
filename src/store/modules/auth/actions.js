@@ -3,14 +3,21 @@ import types from './types';
 export function signInRequest(email, password) {
   return {
     type: types.SIGN_IN_REQUEST,
-    payload: { email, password }
+    payload: { email, password },
   };
 }
 
-export function signInSuccess(token, accepted_regulation) {
+export function signInSuccess(token, user) {
   return {
     type: types.SIGN_IN_SUCCESS,
-    payload: { token, accepted_regulation }
+    payload: { token, user },
+  };
+}
+
+export function updateProfileSuccess(data) {
+  return {
+    type: types.UPDATE_PROFILE_SUCCESS,
+    payload: { data },
   };
 }
 
@@ -28,6 +35,6 @@ export function signOutRequest() {
 
 export function acceptRegulation() {
   return {
-    type: types.ACCEPT_REGULATION, 
+    type: types.ACCEPT_REGULATION,
   };
 }

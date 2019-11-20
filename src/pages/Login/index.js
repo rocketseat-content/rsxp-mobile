@@ -108,13 +108,7 @@ export default function Login({ navigation }) {
             </SubmitButton>
 
             <NewAccountButton onPress={handleCreateAccount}>
-              {loading ? (
-                <ActivityIndicator color="#FFF" size="small" />
-              ) : (
-                <NewAccountButtonText>
-                  AINDA NÃO TENHO CONTA
-                </NewAccountButtonText>
-              )}
+              <NewAccountButtonText>AINDA NÃO TENHO CONTA</NewAccountButtonText>
             </NewAccountButton>
 
             <ForgotPasswordButton

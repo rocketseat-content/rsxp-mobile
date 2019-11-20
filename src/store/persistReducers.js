@@ -6,7 +6,7 @@ export default reducers => {
     {
       key: '@rsxp',
       storage: AsyncStorage,
-      whitelist: ['auth']
+      whitelist: ['auth'],
     },
     reducers
   );

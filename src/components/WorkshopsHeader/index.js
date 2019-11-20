@@ -9,7 +9,7 @@ import {
   WorkshopsTitleSeparator,
   WorkshopsTitle,
   InfoIconButton,
-  InfoIcon
+  InfoIcon,
 } from './styles';
 
 export default function WorkshopsHeader() {
@@ -20,7 +20,10 @@ export default function WorkshopsHeader() {
       <SmallLogo />
       <WorkshopsTitleSeparator />
       <WorkshopsTitle>WORKSHOPS</WorkshopsTitle>
-      <InfoIconButton onPress={() => dispatch(signOutRequest())}>
+      <InfoIconButton
+        hitSlop={{ left: 10, right: 10, top: 10, bottom: 10 }}
+        onPress={() => dispatch(signOutRequest())}
+      >
         <InfoIcon />
       </InfoIconButton>
     </Container>

@@ -15,13 +15,13 @@ export function* signInRequest({ payload }) {
 
     const response = yield call(signin, email, password);
 
-    const { token, accepted_regulation } = response.data;
+    const { token, user } = response.data;
 
     api.defaults.headers.Authorization = `bearer ${token}`;
 
-    yield put(signInSuccess(token, accepted_regulation));
+    yield put(signInSuccess(token, user));
 
-    if (!accepted_regulation) {
+    if (!user.accepted_regulation) {
       NavigationService.navigate('RegulationReview');
     } else {
       NavigationService.navigate('AppRoutes');
@@ -52,5 +52,5 @@ export function setToken({ payload }) {
 export default all([
   takeLatest(types.SIGN_IN_REQUEST, signInRequest),
   takeLatest(types.SIGN_OUT_REQUEST, signOutRequest),
-  takeLatest(types.PERSIST_REHYDRATE, setToken)
+  takeLatest(types.PERSIST_REHYDRATE, setToken),
 ]);
