@@ -86,7 +86,7 @@ export default function CreateAccount({ navigation }) {
       enabled={Platform.OS === 'ios'}
     >
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : null}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{ flex: 1 }}
       >
         <Container>
