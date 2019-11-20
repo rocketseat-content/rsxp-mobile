@@ -194,21 +194,29 @@ export default function WorkshopDetails({ navigation }) {
 
         {!loading && (
           <>
-            {!workshop.subscribed ? (
-              <SubmitButton onPress={handleSubscribe}>
-                {loadingSubscription ? (
-                  <ActivityIndicator color="#FFF" size="small" />
+            {!workshop.isFull ? (
+              <>
+                {!workshop.subscribed ? (
+                  <SubmitButton onPress={handleSubscribe}>
+                    {loadingSubscription ? (
+                      <ActivityIndicator color="#FFF" size="small" />
+                    ) : (
+                      <SubmitButtonText>GARANTIR MINHA VAGA</SubmitButtonText>
+                    )}
+                  </SubmitButton>
                 ) : (
-                  <SubmitButtonText>GARANTIR MINHA VAGA</SubmitButtonText>
+                  <SubmitButton type="subscribed" onPress={handleUnsubscribe}>
+                    {loadingSubscription ? (
+                      <ActivityIndicator color="#FFF" size="small" />
+                    ) : (
+                      <SubmitButtonText>REMOVER INSCRIÇÃO</SubmitButtonText>
+                    )}
+                  </SubmitButton>
                 )}
-              </SubmitButton>
+              </>
             ) : (
-              <SubmitButton subscribed onPress={handleUnsubscribe}>
-                {loadingSubscription ? (
-                  <ActivityIndicator color="#FFF" size="small" />
-                ) : (
-                  <SubmitButtonText>REMOVER INSCRIÇÃO</SubmitButtonText>
-                )}
+              <SubmitButton type="full" enabled={false}>
+                <SubmitButtonText>ESGOTADO</SubmitButtonText>
               </SubmitButton>
             )}
           </>

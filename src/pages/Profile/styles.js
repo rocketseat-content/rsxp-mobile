@@ -19,6 +19,7 @@ export const AvatarInput = styled.Image`
   border-radius: 70px;
   align-self: center;
   margin-top: 30px;
+  background: #333;
 `;
 
 export const AvatarDesc = styled.Text`

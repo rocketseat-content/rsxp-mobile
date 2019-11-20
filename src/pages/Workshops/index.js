@@ -27,7 +27,7 @@ import {
   WorkshopInstructorContainer,
   WorkshopInstructorPicture,
   WorkshopInstructorName,
-  Subscribed,
+  WorkshopStatus,
 } from './styles';
 
 function Workshops({ navigation, isFocused }) {
@@ -79,6 +79,9 @@ function Workshops({ navigation, isFocused }) {
   }, [currentSection]);
 
   function renderWorkshops({ item: workshop }) {
+    const isSubcribed = !!Number(workshop.__meta__.hasSubscribed);
+    const isFull = Number(workshop.__meta__.subscriptions_count) >= 48;
+
     return (
       <WorkshopCard
         onPress={() => navigation.navigate('WorkshopDetails', { workshop })}
@@ -100,8 +103,9 @@ function Workshops({ navigation, isFocused }) {
               {workshop.user.name}
             </WorkshopInstructorName>
 
-            {!!Number(workshop.__meta__.hasSubscribed) && (
-              <Subscribed>INSCRITO</Subscribed>
+            {isSubcribed && <WorkshopStatus>INSCRITO</WorkshopStatus>}
+            {!isSubcribed && isFull && (
+              <WorkshopStatus full>ESGOTADO</WorkshopStatus>
             )}
           </WorkshopInstructorContainer>
         </WorkshopInfo>

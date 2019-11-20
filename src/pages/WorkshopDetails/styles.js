@@ -91,6 +91,12 @@ export const WorkshopDescription = styled.Text`
   line-height: 24px;
 `;
 
+const buttonColors = {
+  subscribed: '#DC4747',
+  full: '#999',
+  default: '#7159c1',
+};
+
 export const SubmitButton = styled(RectButton)`
   position: absolute;
   bottom: 30px;
@@ -98,7 +104,7 @@ export const SubmitButton = styled(RectButton)`
   right: 30px;
   height: 54px;
   border-radius: 27px;
-  background-color: ${props => (props.subscribed ? '#DC4747' : '#7159c1')};
+  background-color: ${props => buttonColors[props.type || 'default']};
   justify-content: center;
   align-items: center;
 `;

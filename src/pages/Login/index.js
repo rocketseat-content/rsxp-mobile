@@ -7,7 +7,6 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import * as WebBrowser from 'expo-web-browser';
 
 import { signInRequest } from '../../store/modules/auth/actions';
 
@@ -47,12 +46,7 @@ export default function Login({ navigation }) {
   }
 
   function handleCreateAccount() {
-    WebBrowser.openBrowserAsync(
-      'https://rocketseat.com.br/experience/criar-senha',
-      {
-        toolbarColor: '#100f12',
-      }
-    );
+    navigation.navigate('CreateAccount');
   }
 
   return (

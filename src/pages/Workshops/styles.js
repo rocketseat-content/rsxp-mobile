@@ -116,8 +116,8 @@ export const WorkshopInstructorName = styled.Text`
   font-weight: bold;
 `;
 
-export const Subscribed = styled.Text`
-  color: #00f5ff;
+export const WorkshopStatus = styled.Text`
+  color: ${props => (props.full ? '#DC4747' : '#00f5ff')};
   font-size: 12px;
   font-weight: bold;
   margin-left: 10px;

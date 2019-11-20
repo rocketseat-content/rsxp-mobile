@@ -5,7 +5,7 @@ import {
   Keyboard,
   Alert,
   Platform,
-  ActivityIndicator
+  ActivityIndicator,
 } from 'react-native';
 
 import { resetPassword } from '../../services/auth';
@@ -21,7 +21,7 @@ import {
   SubmitButton,
   SubmitButtonText,
   BackToLoginButton,
-  BackToLoginButtonText
+  BackToLoginButtonText,
 } from './styles';
 
 export default function ForgotPassword({ navigation }) {
@@ -38,9 +38,24 @@ export default function ForgotPassword({ navigation }) {
       setLoading(true);
 
       await resetPassword(email);
+
+      Alert.alert(
+        'Sucesso!',
+        'Cheque seu e-mail para instruções de recuperação de senha!',
+        [
+          {
+            text: 'OK',
+            onPress: () => navigation.navigate('Login'),
+          },
+        ]
+      );
     } catch (err) {
       Alert.alert('Opss...', 'Houve um erro ao tentar recuperar sua senha.', [
-        { text: 'OK', style: 'default', onPress: () => emailInputRef.current.focus() }
+        {
+          text: 'OK',
+          style: 'default',
+          onPress: () => emailInputRef.current.focus(),
+        },
       ]);
     } finally {
       setLoading(false);
@@ -52,7 +67,7 @@ export default function ForgotPassword({ navigation }) {
       <KeyboardAvoidingView
         behavior="padding"
         style={{ flex: 1 }}
-        enabled={Platform.OS === 'ios' ? true : false}
+        enabled={Platform.OS === 'ios'}
       >
         <Container>
           <Logo />
@@ -75,9 +90,11 @@ export default function ForgotPassword({ navigation }) {
             </InputContainer>
 
             <SubmitButton onPress={handleSubmit}>
-              { loading 
-                  ? <ActivityIndicator color="#FFF" size="small" /> 
-                  : <SubmitButtonText>RECUPERAR SENHA</SubmitButtonText> }
+              {loading ? (
+                <ActivityIndicator color="#FFF" size="small" />
+              ) : (
+                <SubmitButtonText>RECUPERAR SENHA</SubmitButtonText>
+              )}
             </SubmitButton>
 
             <BackToLoginButton onPress={() => navigation.navigate('Login')}>

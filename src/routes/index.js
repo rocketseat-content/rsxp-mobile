@@ -9,6 +9,7 @@ import createAnimatedSwitchNavigator from 'react-navigation-animated-switch';
 import { Transition } from 'react-native-reanimated';
 
 import Login from '../pages/Login';
+import CreateAccount from '../pages/CreateAccount';
 import ForgotPassword from '../pages/ForgotPassword';
 import RegulationReview from '../pages/RegulationReview';
 
@@ -19,6 +20,7 @@ import Profile from '../pages/Profile';
 const SignRoutes = createAnimatedSwitchNavigator(
   {
     Login,
+    CreateAccount,
     ForgotPassword,
   },
   {

@@ -62,8 +62,14 @@ export default function Profile() {
       const data = new FormData(); //eslint-disable-line
 
       data.append('name', name);
-      data.append('github', github);
-      data.append('linkedin', linkedin);
+
+      if (github) {
+        data.append('github', github);
+      }
+
+      if (linkedin) {
+        data.append('linkedin', linkedin);
+      }
 
       if (old_password) {
         data.append('old_password', old_password);
@@ -93,6 +99,8 @@ export default function Profile() {
 
       Alert.alert('Sucesso!', 'Perfil atualizado com sucesso.');
     } catch (err) {
+      console.log(err.response);
+
       const message =
         err.response && err.response.data && err.response.data.error;
 
@@ -253,8 +261,7 @@ export default function Profile() {
               onSubmitEditing={() =>
                 changePassword
                   ? oldPasswordInputRef.current.focus()
-                  : handleSaveProfile()
-              }
+                  : handleSaveProfile()}
             />
             <FontAwesome5 name="linkedin" size={20} color="#999" />
           </InputContainer>
@@ -298,7 +305,8 @@ export default function Profile() {
                   value={password}
                   returnKeyType="next"
                   onSubmitEditing={() =>
-                    confirmPasswordInputRef.current.focus()}
+                    confirmPasswordInputRef.current.focus()
+                  }
                 />
                 <MaterialIcons name="lock" size={20} color="#999" />
               </InputContainer>
