@@ -7,8 +7,8 @@ import logoImage from '../../../assets/logo.png';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  justify-content: center;
   background: #100f12;
+  justify-content: center;
 `;
 
 export const Logo = styled.Image.attrs({

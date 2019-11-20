@@ -82,7 +82,7 @@ export default function Profile() {
         data.append('avatar', {
           uri: avatar_url,
           name: filename,
-          type: 'image',
+          type: 'image/jpg',
         });
       }
 
@@ -99,8 +99,6 @@ export default function Profile() {
 
       Alert.alert('Sucesso!', 'Perfil atualizado com sucesso.');
     } catch (err) {
-      console.log(err.response);
-
       const message =
         err.response && err.response.data && err.response.data.error;
 
@@ -261,7 +259,8 @@ export default function Profile() {
               onSubmitEditing={() =>
                 changePassword
                   ? oldPasswordInputRef.current.focus()
-                  : handleSaveProfile()}
+                  : handleSaveProfile()
+              }
             />
             <FontAwesome5 name="linkedin" size={20} color="#999" />
           </InputContainer>
@@ -269,7 +268,8 @@ export default function Profile() {
           <SwitchContainer>
             <SwitchText>Alterar senha</SwitchText>
             <Switch
-              trackColor="#7159c1"
+              thumbColor="#7159c1"
+              trackColor={{ true: '#333', false: '#333' }}
               value={changePassword}
               onValueChange={setChangePassword}
             />
@@ -305,8 +305,7 @@ export default function Profile() {
                   value={password}
                   returnKeyType="next"
                   onSubmitEditing={() =>
-                    confirmPasswordInputRef.current.focus()
-                  }
+                    confirmPasswordInputRef.current.focus()}
                 />
                 <MaterialIcons name="lock" size={20} color="#999" />
               </InputContainer>

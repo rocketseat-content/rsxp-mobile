@@ -1,11 +1,13 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
   flex: 1;
   justify-content: center;
   background: #100f12;
+  padding-top: ${Constants.statusBarHeight}px;
 `;
 
 export const Title = styled.Text`

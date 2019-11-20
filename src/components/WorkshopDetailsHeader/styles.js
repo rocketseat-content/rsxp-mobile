@@ -5,7 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 
 export const Container = styled(LinearGradient).attrs(props => ({
-  colors: [props.color, lighten(0.2, props.color)],
+  colors: [props.color, lighten(0.1, props.color)],
   start: { x: 0.3, y: 1 },
   end: { x: 1, y: 0 },
 }))`

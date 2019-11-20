@@ -11,7 +11,6 @@ import {
   Alert,
   Modal,
 } from 'react-native';
-import * as WebBrowser from 'expo-web-browser';
 import { MaterialIcons } from '@expo/vector-icons';
 import LottieView from 'lottie-react-native';
 
@@ -30,12 +29,8 @@ import {
   InstructorContainer,
   Instructor,
   InstructorInfo,
-  InstructorAvatar,
   InstructorName,
   InstructorTitle,
-  IconsContainer,
-  GithubIcon,
-  LinkedinIcon,
   SubmitButton,
   SubmitButtonText,
   ModalContainer,
@@ -71,10 +66,6 @@ export default function WorkshopDetails({ navigation }) {
     await modalContainerRef.current.fadeOut(500);
 
     setModalOpen(false);
-  }, []);
-
-  const handleOpenLink = useCallback(link => {
-    WebBrowser.openBrowserAsync(link, { toolbarColor: '#100F12' });
   }, []);
 
   const handleSubscribe = useCallback(async () => {
@@ -155,30 +146,13 @@ export default function WorkshopDetails({ navigation }) {
             <>
               <WorkshopTitle>{workshop.title}</WorkshopTitle>
               <InstructorContainer>
-                <InstructorAvatar uri={workshop.user.avatar_url} />
                 <Instructor>
                   <InstructorInfo>
-                    <InstructorName>{workshop.user.name}</InstructorName>
-                    {workshop.user.title && (
-                      <InstructorTitle>{workshop.user.title}</InstructorTitle>
-                    )}
+                    <InstructorName>{workshop.instructor}</InstructorName>
+                    <InstructorTitle>
+                      trazido por {workshop.company}
+                    </InstructorTitle>
                   </InstructorInfo>
-                  <IconsContainer>
-                    {workshop.user.github && (
-                      <TouchableOpacity
-                        onPress={() => handleOpenLink(workshop.user.github)}
-                      >
-                        <GithubIcon />
-                      </TouchableOpacity>
-                    )}
-                    {workshop.user.linkedin && (
-                      <TouchableOpacity
-                        onPress={() => handleOpenLink(workshop.user.linkedin)}
-                      >
-                        <LinkedinIcon />
-                      </TouchableOpacity>
-                    )}
-                  </IconsContainer>
                 </Instructor>
               </InstructorContainer>
 

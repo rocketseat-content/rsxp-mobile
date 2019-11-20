@@ -40,6 +40,7 @@ const BottomRoutes = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
+      keyboardHidesTabBar: true,
       inactiveTintColor: 'rgba(255, 2555, 255, 0.5)',
       activeTintColor: '#fff',
       style: {

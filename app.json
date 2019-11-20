@@ -27,7 +27,8 @@
       "sourceExts": ["js", "jsx", "svg", "json"]
     },
     "androidStatusBar": {
-      "barStyle": "light-content"
+      "barStyle": "light-content",
+      "backgroundColor": "#100F12"
     }
   }
 }

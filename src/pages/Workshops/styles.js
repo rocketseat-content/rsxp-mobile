@@ -65,7 +65,7 @@ export const WorkshopCard = styled.TouchableOpacity.attrs({
   width: 100%;
   height: 106px;
   align-items: stretch;
-  background: #222;
+  background: #202020;
   margin-bottom: 15px;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -114,6 +114,11 @@ export const WorkshopInstructorName = styled.Text`
   color: #fff;
   font-size: 13px;
   font-weight: bold;
+`;
+
+export const WorkshopCompanyName = styled.Text`
+  font-weight: normal;
+  color: #999;
 `;
 
 export const WorkshopStatus = styled.Text`

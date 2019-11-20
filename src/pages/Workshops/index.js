@@ -25,8 +25,8 @@ import {
   WorkshopCard,
   WorkshopTitle,
   WorkshopInstructorContainer,
-  WorkshopInstructorPicture,
   WorkshopInstructorName,
+  WorkshopCompanyName,
   WorkshopStatus,
 } from './styles';
 
@@ -90,7 +90,7 @@ function Workshops({ navigation, isFocused }) {
           colors={
             (workshop.color && [
               workshop.color,
-              lighten(0.2, workshop.color),
+              lighten(0.1, workshop.color),
             ]) || ['#7159c1', '#c759e0']
           }
         />
@@ -98,9 +98,9 @@ function Workshops({ navigation, isFocused }) {
         <WorkshopInfo>
           <WorkshopTitle numberOfLines={2}>{workshop.title}</WorkshopTitle>
           <WorkshopInstructorContainer>
-            <WorkshopInstructorPicture uri={workshop.user.avatar_url} />
             <WorkshopInstructorName>
-              {workshop.user.name}
+              {workshop.instructor}{' '}
+              <WorkshopCompanyName>({workshop.company})</WorkshopCompanyName>
             </WorkshopInstructorName>
 
             {isSubcribed && <WorkshopStatus>INSCRITO</WorkshopStatus>}

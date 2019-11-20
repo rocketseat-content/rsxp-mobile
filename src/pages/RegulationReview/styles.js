@@ -1,12 +1,14 @@
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { TabBar } from 'react-native-tab-view';
+import Constants from 'expo-constants';
 
 import conductImage from '../../../assets/conduct-code.svg';
 import regulationImage from '../../../assets/regulation.svg';
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
   flex: 1;
+  padding-top: ${Constants.statusBarHeight}px;
 `;
 
 export const Tabs = styled(TabBar).attrs({
